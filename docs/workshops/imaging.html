@@ -288,16 +288,350 @@ function setup() {
           <body>
           </body>
         </html>
-      "></iframe><script id="_VEiCkeQOG">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("_VEiCkeQOG", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#gama-de-grises" class="h2" data-content-highlight="gama-de-grises">Gama de grises</a><a href="#usando-promedio-rgb" class="h3" data-content-highlight="usando-promedio-rgb">Usando Promedio RGB</a><a href="#gama-de-grises-en-video" class="h3" data-content-highlight="gama-de-grises-en-video">Gama de grises en video</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#arte-ascii" class="h2" data-content-highlight="arte-ascii">Arte ASCII</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="XrnWPthviH">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("XrnWPthviH", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
+      "></iframe><h2 id="conversión-de-la-imagen-a-un-foto-mosaico" class="heading-0-0-1"><span class="anchor-0-0-2" data-ignore-text=""><span class="icon-font" data-ignore-text="" style="vertical-align: sub">link</span></span>Conversión de la imagen a un foto-mosaico.</h2><p>Conversión con una imagen pequeña (mosaico de imagenes 3x3):</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 470px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;
+let img2
+function preload(){
+  img = loadImage('/vc/docs/sketches/tree.jpg');}
+function setup() {
+  createCanvas(350, 450);
+  image(img, 0, 0,width,height);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 470px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let imgColor;
+let Rimgs = new Array(20);
+let Bimgs = new Array(20);
+let Gimgs = new Array(20);
+let Yimgs = new Array(20);
+let Grayimgs = new Array(20);
+let total = 0;
+//CARACTERISTICAS DE LA IMAGEN PRINCIPAL
+let MainImgName = &quot;tree&quot;;
+let MainImgX = 350;
+let MainImgY = 450;
+let pixelSize = 3;
+let pixel;//FUNCION PARA RETORNAR EL INDICE DE LA IMAGEN A UTILIZAR SEGUN SU BRILLO
+function brightlevel(S) {
+ if (S<0.05){
+   return 20;
+ }
+ else if (S<0.14){
+   return 19;
+ }
+ else if (S<0.23){
+   return 18;
+ }
+ else if (S<0.32){
+   return 17;
+ }
+ else if (S<0.41){
+   return 16;
+ }
+ else if (S<0.5){
+   return 15;
+ }
+ else if (S<0.59){
+   return 14;
+ }
+ else if (S<0.68){
+   return 13;
+ }
+ else if (S<0.77){
+   return 12;
+ }
+ else if (S<0.86){
+   return 11;
+ }
+ else if (S<0.95){
+   return 10;
+ }
+ else if (S<1.04){
+   return 9;
+ }
+ else if (S<1.13){
+   return 8;
+ }
+ else if (S<1.22){
+   return 7;
+ }
+ else if (S<1.31){
+   return 6;
+ }
+ else if (S<1.4){
+   return 5;
+ }
+ else if (S<1.49){
+   return 4;
+ }
+ else if (S<1.58){
+   return 3;
+ }
+ else if (S<1.67){
+   return 2;
+ }
+ else if (S<=1.76){
+   return 1;
+ }
+ else{
+   return 100;
+ }
+}function preload(){
+ //SE CARGAN LAS IMAGENES RGB
+ for (let i=0; i<20; i++){
+   Rimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/red&quot;+(i+1)+&quot;.jpg&quot;);
+   Gimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/green&quot;+(i+1)+&quot;.jpg&quot;);
+   Bimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/blue&quot;+(i+1)+&quot;.jpg&quot;);
+   Yimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/yellowOrange&quot;+(i+1)+&quot;.jpg&quot;);
+   Grayimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/gray&quot;+(i+1)+&quot;.jpg&quot;);
+ }
+ //SE CARGA LA IMAGEN CON LA QUE SE TRABAJA 2 VECES PARA TENER UNA VERSION ORIGINAL Y OTRA A ESCALA DE GRISES
+ imgColor = loadImage(&quot;/vc/docs/sketches/&quot;+MainImgName+&quot;.jpg&quot;);
+}function setup() {
+ createCanvas(350,450);
+ background(255);
+ fill(0); //SE APLICA EL FILTRO GRIS
+ imgColor.loadPixels(); let i = 0; //SE HALLA EL PROMEDIO DE LOS VALORES RGB PARA EL BRILLO
+ for (let y = 0; y < imgColor.height; y += 1) {
+   for (let x = 0; x < imgColor.width; x += 1) {
+     pixel = imgColor.pixels[(y * imgColor.width + x)];
+     total = total + brightness(pixel);
+     i++;
+   }
+ }
+ total = total / i;}function draw(){ imgColor.resize(MainImgX,MainImgY); for (let i=0; i<20; i++){
+   Rimgs[i].resize(pixelSize,pixelSize);
+   Gimgs[i].resize(pixelSize,pixelSize);
+   Bimgs[i].resize(pixelSize,pixelSize);
+   Yimgs[i].resize(pixelSize,pixelSize);
+   Grayimgs[i].resize(pixelSize,pixelSize);
+ }//SE RECORRE LA IMAGEN
+ for (let y = 0; y < imgColor.height; y += pixelSize) {
+   for (let x = 0; x < imgColor.width; x += pixelSize) {
+     //CON LA IMAGEN GRIS VERIFICAMOS EL BRILLO DEL PIXEL
+       pixel = imgColor.get(x,y);
+       let S=brightness(pixel);
+       S = S/total;
+       //CON LA IMAGEN A COLOR VERIFICAMOS EL RGB DEL PIXEL
+       let r = red(pixel);
+       let g = green(pixel);
+       let b = blue(pixel);       //LLAMAMOS A LA FUNCION PARA EL INDICE CORRESPONDIENTE EL BRILLO
+       let bright = brightlevel(S)-1;
+       if(r==255 &amp;&amp; b==255 &amp;&amp; g==255){
+        image(Grayimgs[0],x,y);
+       }
+       //SI RETORNA 99 ES BLANCO ASI QUE SE USA LA IMAGEN BLANCA DEL ELSE
+       else if(bright!=99){
+         //SE VERIFICA EL COLOR MAYORITARIO Y SE APLICA UNA IMAGEN CON ESE COLOR
+         if (r>=g &amp;&amp; g>=125 &amp;&amp; r>b){
+           image(Yimgs[bright],x,y);
+         }else if (r>b &amp;&amp; r>g){
+           image(Rimgs[bright],x,y);
+         }else if(b>r &amp;&amp; b>g){
+           image(Bimgs[bright],x,y);
+         }else if(g>b &amp;&amp; g>r){
+           image(Gimgs[bright],x,y);
+         }else{
+           image(Grayimgs[bright],x,y);
+         }
+       }else{
+         image(Grayimgs[0],x,y);
+       }
+   }
+ }
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Conversión con una imagen grande (mosaico de imagenes 5x5):</p><iframe id="inline" class="p5-0-0-17 center" style="width: 1520px; height: 1020px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;
+let img2
+function preload(){
+  img = loadImage('/vc/docs/sketches/paisaje2.jpg');}
+function setup() {
+  createCanvas(1500, 1000);
+  image(img, 0, 0,width,height);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><iframe id="inline" class="p5-0-0-17 center" style="width: 1520px; height: 1020px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let imgColor;
+let Rimgs = new Array(20);
+let Bimgs = new Array(20);
+let Gimgs = new Array(20);
+let Yimgs = new Array(20);
+let Grayimgs = new Array(20);
+let total = 0;
+//CARACTERISTICAS DE LA IMAGEN PRINCIPAL
+let MainImgName = &quot;paisaje2&quot;;
+let MainImgX = 1500;
+let MainImgY = 1000;
+let pixelSize = 5;
+let pixel;//FUNCION PARA RETORNAR EL INDICE DE LA IMAGEN A UTILIZAR SEGUN SU BRILLO
+function brightlevel(S) {
+ if (S<0.05){
+   return 20;
+ }
+ else if (S<0.14){
+   return 19;
+ }
+ else if (S<0.23){
+   return 18;
+ }
+ else if (S<0.32){
+   return 17;
+ }
+ else if (S<0.41){
+   return 16;
+ }
+ else if (S<0.5){
+   return 15;
+ }
+ else if (S<0.59){
+   return 14;
+ }
+ else if (S<0.68){
+   return 13;
+ }
+ else if (S<0.77){
+   return 12;
+ }
+ else if (S<0.86){
+   return 11;
+ }
+ else if (S<0.95){
+   return 10;
+ }
+ else if (S<1.04){
+   return 9;
+ }
+ else if (S<1.13){
+   return 8;
+ }
+ else if (S<1.22){
+   return 7;
+ }
+ else if (S<1.31){
+   return 6;
+ }
+ else if (S<1.4){
+   return 5;
+ }
+ else if (S<1.49){
+   return 4;
+ }
+ else if (S<1.58){
+   return 3;
+ }
+ else if (S<1.67){
+   return 2;
+ }
+ else if (S<=1.76){
+   return 1;
+ }
+ else{
+   return 100;
+ }
+}function preload(){
+ //SE CARGAN LAS IMAGENES RGB
+ for (let i=0; i<20; i++){
+   Rimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/red&quot;+(i+1)+&quot;.jpg&quot;);
+   Gimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/green&quot;+(i+1)+&quot;.jpg&quot;);
+   Bimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/blue&quot;+(i+1)+&quot;.jpg&quot;);
+   Yimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/yellowOrange&quot;+(i+1)+&quot;.jpg&quot;);
+   Grayimgs[i] = loadImage(&quot;/vc/docs/sketches/imagenes/gray&quot;+(i+1)+&quot;.jpg&quot;);
+ }
+ //SE CARGA LA IMAGEN CON LA QUE SE TRABAJA 2 VECES PARA TENER UNA VERSION ORIGINAL Y OTRA A ESCALA DE GRISES
+ imgColor = loadImage(&quot;/vc/docs/sketches/&quot;+MainImgName+&quot;.jpg&quot;);
+}function setup() {
+ createCanvas(1500,1000);
+ background(255);
+ fill(0); //SE APLICA EL FILTRO GRIS
+ imgColor.loadPixels(); let i = 0; //SE HALLA EL PROMEDIO DE LOS VALORES RGB PARA EL BRILLO
+ for (let y = 0; y < imgColor.height; y += 1) {
+   for (let x = 0; x < imgColor.width; x += 1) {
+     pixel = imgColor.pixels[(y * imgColor.width + x)];
+     total = total + brightness(pixel);
+     i++;
+   }
+ }
+ total = total / i;}function draw(){ imgColor.resize(MainImgX,MainImgY); for (let i=0; i<20; i++){
+   Rimgs[i].resize(pixelSize,pixelSize);
+   Gimgs[i].resize(pixelSize,pixelSize);
+   Bimgs[i].resize(pixelSize,pixelSize);
+   Yimgs[i].resize(pixelSize,pixelSize);
+   Grayimgs[i].resize(pixelSize,pixelSize);
+ }//SE RECORRE LA IMAGEN
+ for (let y = 0; y < imgColor.height; y += pixelSize) {
+   for (let x = 0; x < imgColor.width; x += pixelSize) {
+     //CON LA IMAGEN GRIS VERIFICAMOS EL BRILLO DEL PIXEL
+       pixel = imgColor.get(x,y);
+       let S=brightness(pixel);
+       S = S/total;
+       //CON LA IMAGEN A COLOR VERIFICAMOS EL RGB DEL PIXEL
+       let r = red(pixel);
+       let g = green(pixel);
+       let b = blue(pixel);       //LLAMAMOS A LA FUNCION PARA EL INDICE CORRESPONDIENTE EL BRILLO
+       let bright = brightlevel(S)-1;
+       if(r==255 &amp;&amp; b==255 &amp;&amp; g==255){
+        image(Grayimgs[0],x,y);
+       }
+       //SI RETORNA 99 ES BLANCO ASI QUE SE USA LA IMAGEN BLANCA DEL ELSE
+       else if(bright!=99){
+         //SE VERIFICA EL COLOR MAYORITARIO Y SE APLICA UNA IMAGEN CON ESE COLOR
+         if (r>=g &amp;&amp; g>=125 &amp;&amp; r>b){
+           image(Yimgs[bright],x,y);
+         }else if (r>b &amp;&amp; r>g){
+           image(Rimgs[bright],x,y);
+         }else if(b>r &amp;&amp; b>g){
+           image(Bimgs[bright],x,y);
+         }else if(g>b &amp;&amp; g>r){
+           image(Gimgs[bright],x,y);
+         }else{
+           image(Grayimgs[bright],x,y);
+         }
+       }else{
+         image(Grayimgs[0],x,y);
+       }
+   }
+ }
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><script id="oECGKThVGw">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("oECGKThVGw", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#gama-de-grises" class="h2" data-content-highlight="gama-de-grises">Gama de grises</a><a href="#usando-promedio-rgb" class="h3" data-content-highlight="usando-promedio-rgb">Usando Promedio RGB</a><a href="#gama-de-grises-en-video" class="h3" data-content-highlight="gama-de-grises-en-video">Gama de grises en video</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#arte-ascii" class="h2" data-content-highlight="arte-ascii">Arte ASCII</a><a href="#conversión-de-la-imagen-a-un-foto-mosaico" class="h2" data-content-highlight="conversión-de-la-imagen-a-un-foto-mosaico">Conversión de la imagen a un foto-mosaico.</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="TzHzeBAdLQ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("TzHzeBAdLQ", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
 <a href="/vc/docs/workshops/rendering">Rendering</a>
 <a href="/vc/docs/workshops/algovis">Algovis</a>
 <a href="/vc/docs/workshops/cg">Computer Graphics</a>
-<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="jPKNemtGHd">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("jPKNemtGHd", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
+<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="JfmAyPrpwC">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("JfmAyPrpwC", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
 <a href="/vc/docs/snippets/basic">Basics</a>
 <a href="/vc/docs/snippets/video-dom">Video on dom</a>
 <a href="/vc/docs/snippets/video-canvas">Video on canvas</a>
 <a href="/vc/docs/snippets/3d">3D</a>
 <a href="/vc/docs/snippets/lib">Libs</a>
-<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="adcsGF_Unm">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("adcsGF_Unm", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
+<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="qlQtRKxwlI">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("qlQtRKxwlI", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
 <a href="/vc/docs/members/Diego-Armando-Velasquez-Vargas">Diego Armando Velasquez Vargas</a>
-<a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a></p></div></div></div><div class="search-0-0-15"><script id="aBWVoQJBXy">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("aBWVoQJBXy", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="ZXaNwaAxzm">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ZXaNwaAxzm", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="heZftOwGOF">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("heZftOwGOF", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="emKqADkMDl">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("emKqADkMDl", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
+<a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a></p></div></div></div><div class="search-0-0-15"><script id="gCVCXyoRPY">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("gCVCXyoRPY", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="ngXXGaXQcJ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ngXXGaXQcJ", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="ofgmjgsVkE">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ofgmjgsVkE", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="FMQVvEKFkY">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("FMQVvEKFkY", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
