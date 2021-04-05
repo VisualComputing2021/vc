@@ -1,0 +1,771 @@
+<!DOCTYPE html><html><head><title>vc | Image and video processing</title><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"><meta name="robots" content="index,follow"><meta name="theme-color" content="#212121"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link href="https://fonts.googleapis.com/css?family=Hind:400,700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons%7CMaterial+Icons+Outlined&amp;display=swap" rel="stylesheet"><style>
+      body, input, button {
+        font-family: 'Hind', sans-serif;
+      }
+
+      code, .hljs {
+        font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+      }
+
+      .icon-font {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;  /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari and Chrome. */
+        text-rendering: optimizeLegibility;
+      
+        /* Support for Firefox. */
+        -moz-osx-font-smoothing: grayscale;
+      
+        /* Support for IE. */
+        font-feature-settings: 'liga';
+      }
+
+      .icon-font.outline {
+        font-family: 'Material Icons Outlined';
+      }
+    </style><link href="/vc/docs/assets/codedoc-styles.css" rel="stylesheet"><script async="" defer="" src="/vc/docs/assets/codedoc-bundle.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous"></head><body><div class="header-0-0-11"><script async="" defer="" src="https://buttons.github.io/buttons.js"></script><a class="github-button" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-show-count="false" data-size="large" href="https://github.com/htovars/vc/">Star</a><br><br><a class="watermark-0-0-10" href="https://github.com/CONNECT-platform/codedoc" target="_blank">Created With<svg viewBox="0 0 536 296" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="codedoc" transform="translate(-244.000000, -364.000000)" fill-rule="nonzero"><path d="M580,532 C615.346224,532 644,560.653776 644,596 C644,631.346224 615.346224,660 580,660 C544.653776,660 516,631.346224 516,596 C516,560.653776 544.653776,532 580,532 Z M716,532 C751.346224,532 780,560.653776 780,596 C780,631.346224 751.346224,660 716,660 L692,660 C687.581722,660 684,656.418278 684,652 C684,647.581722 687.581722,644 692,644 L716,644 C742.509668,644 764,622.509668 764,596 C764,569.490332 742.509668,548 716,548 L692,548 C687.581722,548 684,544.418278 684,540 C684,535.581722 687.581722,532 692,532 L716,532 Z M468,532 C472.418278,532 476,535.581722 476,540 L476,652 C476,656.418278 472.418278,660 468,660 L444,660 C408.653776,660 380,631.346224 380,596 C380,560.653776 408.653776,532 444,532 L468,532 Z M332,532 C336.418278,532 340,535.581722 340,540 L340,652 C340,656.418278 336.418278,660 332,660 L252,660 C247.581722,660 244,656.418278 244,652 L244,540 C244,535.581722 247.581722,532 252,532 L332,532 Z M580,548 C553.490332,548 532,569.490332 532,596 C532,622.509668 553.490332,644 580,644 C606.509668,644 628,622.509668 628,596 C628,569.490332 606.509668,548 580,548 Z M461,548 L444,548 C417.490332,548 396,569.490332 396,596 C396,622.509668 417.490332,644 444,644 L461,644 L461,548 Z M444,364 C479.346224,364 508,392.653776 508,428 C508,463.346224 479.346224,492 444,492 C408.653776,492 380,463.346224 380,428 C380,392.653776 408.653776,364 444,364 Z M332,364 C336.418278,364 340,367.581722 340,372 C340,376.418278 336.418278,380 332,380 L308,380 C281.490332,380 260,401.490332 260,428 C260,454.509668 281.490332,476 308,476 L332,476 C336.418278,476 340,479.581722 340,484 C340,488.418278 336.418278,492 332,492 L308,492 C272.653776,492 244,463.346224 244,428 C244,392.653776 272.653776,364 308,364 L332,364 Z M580,364 C615.346224,364 644,392.653776 644,428 C644,463.346224 615.346224,492 580,492 L556,492 C551.581722,492 548,488.418278 548,484 L548,372 C548,367.581722 551.581722,364 556,364 L580,364 Z M772,364 C776.418278,364 780,367.581722 780,372 C780,376.418278 776.418278,380 772,380 L700,380 L700,420 L772,420 C776.418278,420 780,423.581722 780,428 C780,432.418278 776.418278,436 772,436 L700,436 L700,476 L772,476 C776.418278,476 780,479.581722 780,484 C780,488.418278 776.418278,492 772,492 L692,492 C687.581722,492 684,488.418278 684,484 L684,372 C684,367.581722 687.581722,364 692,364 L772,364 Z M444,380 C417.490332,380 396,401.490332 396,428 C396,454.509668 417.490332,476 444,476 C470.509668,476 492,454.509668 492,428 C492,401.490332 470.509668,380 444,380 Z M580,380 L563,380 L563,476 L580,476 C606.509668,476 628,454.509668 628,428 C628,401.490332 606.509668,380 580,380 Z"></path></g></svg></a></div><div id="-codedoc-container" class="container"><h1 id="image-and-video-processing" class="heading-0-0-1"><span class="anchor-0-0-2" data-ignore-text=""><span class="icon-font" data-ignore-text="" style="vertical-align: sub">link</span></span>Image and video processing</h1><h2 id="máscaras-de-convolución" class="heading-0-0-1"><span class="anchor-0-0-2" data-ignore-text=""><span class="icon-font" data-ignore-text="" style="vertical-align: sub">link</span></span>Máscaras de convolución</h2><p>Una matriz de convolución o máscara es una matriz pequeña que se utiliza para desenfoque, enfoque, realce, detección de bordes.
+Para hacer estos procesamientos se debe realizar una convolución entre un núcleo y una imagen.
+El kernel de una imagen es una pequeña matriz cuadrada de tamaño impar que, por medio de la convolución entre el kernel y la imagen, se utiliza para aplicar distintos efectos en la imagen. La convolución es el proceso en el cual se suma cada píxel de la imagen con sus vecinos locales, teniendo en cuenta los pesos indicados por el kernel. De esta forma, si tenemos la matriz de píxeles:</p><h1 id="máscaras-en-imágenes" class="heading-0-0-1"><span class="anchor-0-0-2" data-ignore-text=""><span class="icon-font" data-ignore-text="" style="vertical-align: sub">link</span></span>Máscaras en Imágenes</h1><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 470px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;
+function preload(){
+  img = loadImage('/vc/docs/sketches/hushky.jpg');
+}
+function setup() {
+  createCanvas(350, 450);
+  image(img, 0, 0,width,height);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>identidad</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let identity = [
+   [0, 0, 0],
+   [0, 1, 0],
+   [0, 0, 0]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  identityImg = createImage(img.width, img.height);
+  identityImg.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, identity);
+           let index = 4 * (x + img.width * y);
+           identityImg.pixels[index] = red(c);
+           identityImg.pixels[index + 1] = green(c);
+           identityImg.pixels[index + 2] = blue(c);
+           identityImg.pixels[index + 3] = alpha(c);
+       }
+   }
+   identityImg.updatePixels();
+   image(identityImg, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Detección de bordes</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let edgeDetection = [
+   [1, 0, -1],
+   [0, 0, 0],
+   [-1, 0, 1]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  edgeDetectionImg = createImage(img.width, img.height);
+  edgeDetectionImg.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, edgeDetection);
+           let index = 4 * (x + img.width * y);
+           edgeDetectionImg.pixels[index] = red(c);
+           edgeDetectionImg.pixels[index + 1] = green(c);
+           edgeDetectionImg.pixels[index + 2] = blue(c);
+           edgeDetectionImg.pixels[index + 3] = alpha(c);
+       }
+   }
+   edgeDetectionImg.updatePixels();
+   image(edgeDetectionImg, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let edgeDetection2 = [
+   [0, -1, 0],
+   [-1, 4, -1],
+   [0, -1, 0]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  edgeDetection2Img = createImage(img.width, img.height);
+  edgeDetection2Img.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, edgeDetection2);
+           let index = 4 * (x + img.width * y);
+           edgeDetection2Img.pixels[index] = red(c);
+           edgeDetection2Img.pixels[index + 1] = green(c);
+           edgeDetection2Img.pixels[index + 2] = blue(c);
+           edgeDetection2Img.pixels[index + 3] = alpha(c);
+       }
+   }
+   edgeDetection2Img.updatePixels();
+   image(edgeDetection2Img, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let edgeDetection3 = [
+   [-1, -1, -1],
+   [-1, 8, -1],
+   [-1, -1, -1]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  edgeDetection3Img = createImage(img.width, img.height);
+  edgeDetection3Img.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, edgeDetection3);
+           let index = 4 * (x + img.width * y);
+           edgeDetection3Img.pixels[index] = red(c);
+           edgeDetection3Img.pixels[index + 1] = green(c);
+           edgeDetection3Img.pixels[index + 2] = blue(c);
+           edgeDetection3Img.pixels[index + 3] = alpha(c);
+       }
+   }
+   edgeDetection3Img.updatePixels();
+   image(edgeDetection3Img, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Enfocar</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let sharpen = [
+   [0, -1, 0],
+   [-1, 5, -1],
+   [0, -1, 0]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  sharpenImg = createImage(img.width, img.height);
+  sharpenImg.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, sharpen);
+           let index = 4 * (x + img.width * y);
+           sharpenImg.pixels[index] = red(c);
+           sharpenImg.pixels[index + 1] = green(c);
+           sharpenImg.pixels[index + 2] = blue(c);
+           sharpenImg.pixels[index + 3] = alpha(c);
+       }
+   }
+   sharpenImg.updatePixels();
+   image(sharpenImg, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Desenfoque de cuadro</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let boxBlur= [
+   [1.0 / 9.0, 1.0 / 9.0, 1.0 / 9.0],
+   [1.0 / 9.0, 1.0 / 9.0, 1.0 / 9.0],
+   [1.0 / 9.0, 1.0 / 9.0, 1.0 / 9.0]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  boxBlurImg = createImage(img.width, img.height);
+  boxBlurImg.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, boxBlur);
+           let index = 4 * (x + img.width * y);
+           boxBlurImg.pixels[index] = red(c);
+           boxBlurImg.pixels[index + 1] = green(c);
+           boxBlurImg.pixels[index + 2] = blue(c);
+           boxBlurImg.pixels[index + 3] = alpha(c);
+       }
+   }
+   boxBlurImg.updatePixels();
+   image(boxBlurImg, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Desenfoque Gausiano 3x3</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let gaussianBlur3 = [
+   [1.0 / 16.0, 2.0 / 16.0, 1.0 / 16.0],
+   [2.0 / 16.0, 4.0 / 16.0, 2.0 / 16.0],
+   [1.0 / 16.0, 2.0 / 16.0, 1.0 / 16.0]
+];function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  gaussianBlur3Img = createImage(img.width, img.height);
+  gaussianBlur3Img.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, gaussianBlur3);
+           let index = 4 * (x + img.width * y);
+           gaussianBlur3Img.pixels[index] = red(c);
+           gaussianBlur3Img.pixels[index + 1] = green(c);
+           gaussianBlur3Img.pixels[index + 2] = blue(c);
+           gaussianBlur3Img.pixels[index + 3] = alpha(c);
+       }
+   }
+   gaussianBlur3Img.updatePixels();
+   image(gaussianBlur3Img, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Desenfoque Gausiano 5x5</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let gaussianBlur5 = [
+   [1.0 / 256.0, 4.0 / 256.0, 6.0 / 256.0, 4.0 / 256.0, 1.0 / 256.0],
+   [4.0 / 256.0, 16.0 / 256.0, 24.0 / 256.0, 16.0 / 256.0, 4.0 / 256.0],
+   [6.0 / 256.0, 24.0 / 256.0, 36.0 / 256.0, 24.0 / 256.0, 6.0 / 256.0],
+   [4.0 / 256.0, 16.0 / 256.0, 24.0 / 256.0, 16.0 / 256.0, 4.0 / 256.0],
+   [1.0 / 256.0, 4.0 / 256.0, 6.0 / 256.0, 4.0 / 256.0, 1.0 / 256.0]
+];
+function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  gaussianBlur5Img = createImage(img.width, img.height);
+  gaussianBlur5Img.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, gaussianBlur5);
+           let index = 4 * (x + img.width * y);
+           gaussianBlur5Img.pixels[index] = red(c);
+           gaussianBlur5Img.pixels[index + 1] = green(c);
+           gaussianBlur5Img.pixels[index + 2] = blue(c);
+           gaussianBlur5Img.pixels[index + 3] = alpha(c);
+       }
+   }
+   gaussianBlur5Img.updatePixels();
+   image(gaussianBlur5Img, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Mascara de desenfoque 5x5</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 520px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let img;let unsharpMasking5 = [
+   [1.0 / -256.0, 4.0 / -256.0, 6.0 / -256.0, 4.0 / -256.0, 1.0 / -256.0],
+   [4.0 / -256.0, 16.0 / -256.0, 24.0 / -256.0, 16.0 / -256.0, 4.0 / -256.0],
+   [6.0 / -256.0, 24.0 / -256.0, -476.0 / -256.0, 24.0 / -256.0, 6.0 / -256.0],
+   [4.0 / -256.0, 16.0 / -256.0, 24.0 / -256.0, 16.0 / -256.0, 4.0 / -256.0],
+   [1.0 / -256.0, 4.0 / -256.0, 6.0 / -256.0, 4.0 / -256.0, 1.0 / -256.0]
+];
+function preload() {
+   img = loadImage('/vc/docs/sketches/hushky.jpg');
+}function setup() {
+   createCanvas(350, 500);
+   img.loadPixels();
+}function draw() {
+  unsharpMasking5Img = createImage(img.width, img.height);
+  unsharpMasking5Img.loadPixels();
+  for (let x = 1; x < img.width; x++) {
+    for (let y = 1; y < img.height; y++) {
+       let c = convolution(x, y, unsharpMasking5);
+           let index = 4 * (x + img.width * y);
+           unsharpMasking5Img.pixels[index] = red(c);
+           unsharpMasking5Img.pixels[index + 1] = green(c);
+           unsharpMasking5Img.pixels[index + 2] = blue(c);
+           unsharpMasking5Img.pixels[index + 3] = alpha(c);
+       }
+   }
+   unsharpMasking5Img.updatePixels();
+   image(unsharpMasking5Img, 0, 0,width,height);
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < img.width) &amp;&amp; (ypos >= 0 || ypos < img.height)) {
+               let index = 4 * (xpos + img.width * ypos);
+               r = img.pixels[index];
+               g = img.pixels[index + 1];
+               b = img.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id="máscaras-en-videos" class="heading-0-0-1"><span class="anchor-0-0-2" data-ignore-text=""><span class="icon-font" data-ignore-text="" style="vertical-align: sub">link</span></span>Máscaras en videos</h1><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 270px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let vid;
+function setup() {
+ noCanvas(); vid = createVideo(
+   ['/vc/docs/sketches/flower.mp4'],
+   vidLoad
+ ); vid.size(350, 250);
+}// This function is called when the video loads
+function vidLoad() {
+ vid.loop();
+ vid.volume(0);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>identidad </p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 270px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let vid;let identity= [
+   [0, 0, 0],
+   [0, 1, 0],
+   [0, 0, 0]
+];
+function preload() {
+   vid =  createVideo('/vc/docs/sketches/flower.mp4');
+   vid.size(350,250);
+   vid.volume(0);
+}function mousePressed() {
+   vid.loop();
+}function setup() {
+   createCanvas(350, 250);
+   vid =  createVideo('/vc/docs/sketches/flower.mp4'); 
+   vid.hide();
+   vid.size(350,250);
+   vid.volume(0);
+}function draw() {   vid.loadPixels();
+   loadPixels();
+   for (let x = 1; x < vid.width; x++) {
+       for (let y = 1; y < vid.height; y++) {
+           let c = convolution(x, y, identity);
+           let index = 4 * (x + vid.width * y);
+           pixels[index] = red(c);
+           pixels[index + 1] = green(c);
+           pixels[index + 2] = blue(c);
+           pixels[index + 3] = alpha(c);
+       }
+   }
+   updatePixels();
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < vid.width) &amp;&amp; (ypos >= 0 || ypos < vid.height)) {
+               let index = 4 * (xpos + vid.width * ypos);
+               r = vid.pixels[index];
+               g = vid.pixels[index + 1];
+               b = vid.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Detección de bordes</p><iframe id="inline" class="p5-0-0-17 center" style="width: 370px; height: 270px" srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
+            <script>let vid;let edgeDetection = [
+   [1, 0, -1],
+   [0, 0, 0],
+   [-1, 0, 1]
+];function preload() {
+   vid =  createVideo('/vc/docs/sketches/flower.mp4');
+   vid.size(350,250);
+   vid.volume(0);
+}function setup() {
+   createCanvas(350, 250);
+   vid.loop();
+   vid.hide();
+   vid.size(350,250);
+   vid.volume(0);
+}function draw() {
+   loadPixels();
+   for (let x = 1; x < vid.width; x++) {
+       for (let y = 1; y < vid.height; y++) {
+           let c = convolution(x, y, edgeDetection);
+           let index = 4 * (x + vid.width * y);
+           pixels[index] = red(c);
+           pixels[index + 1] = green(c);
+           pixels[index + 2] = blue(c);
+           pixels[index + 3] = alpha(c);
+       }
+   }
+   updatePixels();
+}function convolution(x, y, matrix) {
+   let rtotal = 0;
+   let gtotal = 0;
+   let btotal = 0;
+   for (kx = -1; kx <= 1; kx++) {
+       for (ky = -1; ky <= 1; ky++) {
+           let xpos = x + kx;
+           let ypos = y + ky;
+           let r = 0;
+           let g = 0;
+           let b = 0;
+           if ((xpos >= 0 &amp;&amp; xpos < vid.width) &amp;&amp; (ypos >= 0 || ypos < vid.height)) {
+               let index = 4 * (xpos + vid.width * ypos);
+               r = vid.pixels[index];
+               g = vid.pixels[index + 1];
+               b = vid.pixels[index + 2];
+           }
+           rtotal += matrix[kx + 1][ky + 1] * r;
+           gtotal += matrix[kx + 1][ky + 1] * g;
+           btotal += matrix[kx + 1][ky + 1] * b;
+       }
+   }
+   rtotal = constrain(rtotal, 0, 255);
+   gtotal = constrain(gtotal, 0, 255);
+   btotal = constrain(btotal, 0, 255);
+   return color(rtotal, gtotal, btotal);
+}
+:ToCPrevNext</script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#máscaras-de-convolución" class="h2" data-content-highlight="máscaras-de-convolución">Máscaras de convolución</a><a href="#máscaras-en-imágenes" class="h1" data-content-highlight="máscaras-en-imágenes">Máscaras en Imágenes</a><a href="#máscaras-en-videos" class="h1" data-content-highlight="máscaras-en-videos">Máscaras en videos</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="RWktjwBnMP">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("RWktjwBnMP", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
+<a href="/vc/docs/workshops/imagingRGBGrayScale">Imaging RGB-GrayScale</a>
+<a href="/vc/docs/workshops/imagingLumaGrayScale">Imaging Luma-GrayScale</a>
+<a href="/vc/docs/workshops/imagingConvolutionMasks">Imaging Convolution Masks</a>
+<a href="/vc/docs/workshops/imagingASCII">Imaging ASCII</a>
+<a href="/vc/docs/workshops/imagingMosaico">Imaging Mosaico</a>
+<a href="/vc/docs/workshops/rendering">Rendering</a>
+<a href="/vc/docs/workshops/algovis">Algovis</a>
+<a href="/vc/docs/workshops/cg">Computer Graphics</a>
+<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="SXe_VpcGee">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("SXe_VpcGee", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
+<a href="/vc/docs/snippets/basic">Basics</a>
+<a href="/vc/docs/snippets/video-dom">Video on dom</a>
+<a href="/vc/docs/snippets/video-canvas">Video on canvas</a>
+<a href="/vc/docs/snippets/3d">3D</a>
+<a href="/vc/docs/snippets/lib">Libs</a>
+<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="EfgPTRZmcd">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("EfgPTRZmcd", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
+<a href="/vc/docs/members/Diego-Armando-Velasquez-Vargas">Diego Armando Velasquez Vargas</a>
+<a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a>
+<a href="/vc/docs/members/Laura-Natalia-Gonzalez-Mora">Laura Natalia Gonzalez Mora</a></p></div></div></div><div class="search-0-0-15"><script id="SBnPHkqKWD">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("SBnPHkqKWD", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="JloOoQUYlI">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("JloOoQUYlI", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="HRIQJJqkvw">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("HRIQJJqkvw", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="bZBifOIIgo">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("bZBifOIIgo", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
