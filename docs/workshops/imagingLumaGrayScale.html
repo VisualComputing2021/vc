@@ -125,33 +125,33 @@ function preload(){
             <script>let vid;function setup() {
    createCanvas(350, 250);
    vid = createVideo(['/vc/docs/sketches/youWinTheInternet.mp4']);
-   vid.hide();
    vid.loop();
-   noStroke();
-   fill(0);
+   vid.hide();
 }function draw() {
-image(vid, 0, 0,350, 250);
- vid.loadPixels();
+ background(0);
+ image(vid, 0, 0, 350, 250);
+ loadPixels();
  const step = 1;
  for (let y = 0; y < height; y+= step) {
    for (let x = 0; x < width; x+= step) {
-     let index = 4 * (x + vid.width * y);
-     let r = vid.pixels[index];
-     let g = vid.pixels[index + 1];
-     let b = vid.pixels[index + 2];
-     let gamma_1 = r * 0.299 + g * 0.587 + b * 0.0114;
-     let grayColor = color(gamma_1, gamma_1, gamma_1);
-     pixels[i] = red(grayColor);
-     pixels[i + 1] = green(grayColor);
-     pixels[i + 2] = blue(grayColor);
+      let index = 4 * (x + width * y);
+      let r = pixels[index];
+      let g = pixels[index + 1];
+      let b = pixels[index + 2];
+      let gamma = r * 0.299 + g * 0.587 + b * 0.0114;
+      let grayColor = color(gamma, gamma, gamma);
+      pixels[index] = red(grayColor);
+      pixels[index + 1] = green(grayColor);
+      pixels[index + 2] = blue(grayColor);
      }
  }
- vid.updatePixels();}</script>
+ updatePixels();
+}</script>
           </head>
           <body>
           </body>
         </html>
-      "></iframe><script id="PFoyjCKRmU">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("PFoyjCKRmU", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#videoluma" class="h2" data-content-highlight="videoluma">VideoLuma</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="HROpBrTtmX">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("HROpBrTtmX", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
+      "></iframe><script id="AbeiIEyFAX">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("AbeiIEyFAX", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#videoluma" class="h2" data-content-highlight="videoluma">VideoLuma</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="CNLrLNBBt_">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("CNLrLNBBt_", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
 <a href="/vc/docs/workshops/imagingRGBGrayScale">Imaging RGB-GrayScale</a>
 <a href="/vc/docs/workshops/imagingLumaGrayScale">Imaging Luma-GrayScale</a>
 <a href="/vc/docs/workshops/imagingConvolutionMasks">Imaging Convolution Masks</a>
@@ -160,13 +160,13 @@ image(vid, 0, 0,350, 250);
 <a href="/vc/docs/workshops/rendering">Rendering</a>
 <a href="/vc/docs/workshops/algovis">Algovis</a>
 <a href="/vc/docs/workshops/cg">Computer Graphics</a>
-<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="VsdEPEgHKG">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("VsdEPEgHKG", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
+<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="ZresguMaRy">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ZresguMaRy", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
 <a href="/vc/docs/snippets/basic">Basics</a>
 <a href="/vc/docs/snippets/video-dom">Video on dom</a>
 <a href="/vc/docs/snippets/video-canvas">Video on canvas</a>
 <a href="/vc/docs/snippets/3d">3D</a>
 <a href="/vc/docs/snippets/lib">Libs</a>
-<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="TbdsDoAtAZ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("TbdsDoAtAZ", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
+<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="_rliBjsYTX">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("_rliBjsYTX", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
 <a href="/vc/docs/members/Diego-Armando-Velasquez-Vargas">Diego Armando Velasquez Vargas</a>
 <a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a>
-<a href="/vc/docs/members/Laura-Natalia-Gonzalez-Mora">Laura Natalia Gonzalez Mora</a></p></div></div></div><div class="search-0-0-15"><script id="EzVDZYbFmo">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("EzVDZYbFmo", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="bHytuOvvMi">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("bHytuOvvMi", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="HqijhmMfhe">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("HqijhmMfhe", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="LIqCGcugAL">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("LIqCGcugAL", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
+<a href="/vc/docs/members/Laura-Natalia-Gonzalez-Mora">Laura Natalia Gonzalez Mora</a></p></div></div></div><div class="search-0-0-15"><script id="mJwkjIwdBA">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("mJwkjIwdBA", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="GpvpZGJOmV">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("GpvpZGJOmV", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="RRvfYNPxlZ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("RRvfYNPxlZ", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="xQTsQfxcjn">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("xQTsQfxcjn", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
