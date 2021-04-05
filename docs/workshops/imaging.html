@@ -212,10 +212,7 @@ function preload(){
           <head>
             <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
             <script>let vid;function preload() {
- vid = createVideo(
-   ['/vc/docs/sketches/youWinTheInternet.mp4'],
-   vidLoad
- );
+   vid = createVideo('/vc/docs/sketches/youWinTheInternet.mp4');
    vid.size(350,250);
    vid.volume(0);
 }function setup() {
@@ -226,16 +223,20 @@ function preload(){
    vid.volume(0);
 }function draw() {
    loadPixels();
-   for (let i = 0; i < numPixels; i += 4) {
-     let r = red(pixels[i]);
-     let g = green(pixels[i]);
-     let b = blue(pixels[i]);
-     let y = r *0.299 + g *0.587 + b *0.0114;
-     let grayColor = color(y, y, y);
-     pixels[i] = red(grayColor);
-     pixels[i + 1] = green(grayColor);
-     pixels[i + 2] = blue(grayColor);
-   }  updatePixels();
+   for (let x = 1; x < vid.width; x++) {
+       for (let y = 1; y < vid.height; y++) {
+           let index = 4 * (x + vid.width * y);
+           let r = pixels[index];
+           let g = pixels[index + 1];
+           let b = pixels[index + 2];
+           let y = r *0.299 + g *0.587 + b *0.0114;
+           let grayColor = color(y, y, y);
+           pixels[index] = red(grayColor);
+           pixels[index + 1] = green(grayColor);
+           pixels[index + 2] = blue(grayColor);
+      }
+  }
+  updatePixels();
 }</script>
           </head>
           <body>
@@ -657,16 +658,16 @@ function brightlevel(S) {
           <body>
           </body>
         </html>
-      "></iframe><script id="dGEpBJKDdH">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("dGEpBJKDdH", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#gama-de-grises" class="h2" data-content-highlight="gama-de-grises">Gama de grises</a><a href="#usando-promedio-rgb" class="h3" data-content-highlight="usando-promedio-rgb">Usando Promedio RGB</a><a href="#gama-de-grises-en-video" class="h3" data-content-highlight="gama-de-grises-en-video">Gama de grises en video</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#videoluma" class="h2" data-content-highlight="videoluma">VideoLuma</a><a href="#arte-ascii" class="h2" data-content-highlight="arte-ascii">Arte ASCII</a><a href="#conversión-de-la-imagen-a-un-foto-mosaico" class="h2" data-content-highlight="conversión-de-la-imagen-a-un-foto-mosaico">Conversión de la imagen a un foto-mosaico.</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="UDJCRaVeWc">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("UDJCRaVeWc", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
+      "></iframe><script id="yNYSRfMeWa">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("yNYSRfMeWa", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#gama-de-grises" class="h2" data-content-highlight="gama-de-grises">Gama de grises</a><a href="#usando-promedio-rgb" class="h3" data-content-highlight="usando-promedio-rgb">Usando Promedio RGB</a><a href="#gama-de-grises-en-video" class="h3" data-content-highlight="gama-de-grises-en-video">Gama de grises en video</a><a href="#usando-luma" class="h3" data-content-highlight="usando-luma">Usando Luma</a><a href="#luma-normalizado" class="h4" data-content-highlight="luma-normalizado">Luma Normalizado</a><a href="#videoluma" class="h2" data-content-highlight="videoluma">VideoLuma</a><a href="#arte-ascii" class="h2" data-content-highlight="arte-ascii">Arte ASCII</a><a href="#conversión-de-la-imagen-a-un-foto-mosaico" class="h2" data-content-highlight="conversión-de-la-imagen-a-un-foto-mosaico">Conversión de la imagen a un foto-mosaico.</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="UXImvRhlVO">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("UXImvRhlVO", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
 <a href="/vc/docs/workshops/rendering">Rendering</a>
 <a href="/vc/docs/workshops/algovis">Algovis</a>
 <a href="/vc/docs/workshops/cg">Computer Graphics</a>
-<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="QyfrHVfEAs">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("QyfrHVfEAs", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
+<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="huzrRlKPBw">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("huzrRlKPBw", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
 <a href="/vc/docs/snippets/basic">Basics</a>
 <a href="/vc/docs/snippets/video-dom">Video on dom</a>
 <a href="/vc/docs/snippets/video-canvas">Video on canvas</a>
 <a href="/vc/docs/snippets/3d">3D</a>
 <a href="/vc/docs/snippets/lib">Libs</a>
-<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="wbXlSyFuKQ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("wbXlSyFuKQ", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
+<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="WkELwrUhze">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("WkELwrUhze", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
 <a href="/vc/docs/members/Diego-Armando-Velasquez-Vargas">Diego Armando Velasquez Vargas</a>
-<a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a></p></div></div></div><div class="search-0-0-15"><script id="QXHuShAbGG">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("QXHuShAbGG", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="jAfnCKdgxs">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("jAfnCKdgxs", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="h_atBtWWWZ">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("h_atBtWWWZ", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="UY_AtroRRr">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("UY_AtroRRr", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
+<a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a></p></div></div></div><div class="search-0-0-15"><script id="ETYnBFXwQu">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ETYnBFXwQu", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="ewbEHMaEUq">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ewbEHMaEUq", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="FvtOupcSOU">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("FvtOupcSOU", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="h_PUffDEXH">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("h_PUffDEXH", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
