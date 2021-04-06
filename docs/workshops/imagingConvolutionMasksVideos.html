@@ -59,24 +59,25 @@ function vidLoad() {
         <html>
           <head>
             <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js></script>
-            <script>let walkVid;let identity= [
+            <script>let walkVid;let kernel = [
    [0, 0, 0],
    [0, 1, 0],
    [0, 0, 0]
 ];function preload() {
-   walkVid =  createVideo(&quot;/vc/docs/sketches/walk.mp4&quot;);
+   walkVid = createVideo(&quot;/vc/docs/sketches/walkVid.mp4&quot;);
 }function mousePressed() {
    walkVid.loop();
 }function setup() {
    createCanvas(640, 360);
    walkVid.hide();
-   walkVid.size(640,360);
    walkVid.volume(0);
-}function draw() {   walkVid.loadPixels();
+   walkVid.size(640,360);
+}function draw() {
+   walkVid.loadPixels();
    loadPixels();
    for (let x = 1; x < walkVid.width; x++) {
        for (let y = 1; y < walkVid.height; y++) {
-           let c = convolution(x, y, identity);
+           let c = convolution(x, y, kernel);
            let index = 4 * (x + walkVid.width * y);
            pixels[index] = red(c);
            pixels[index + 1] = green(c);
@@ -177,7 +178,7 @@ function vidLoad() {
           <body>
           </body>
         </html>
-      "></iframe><script id="tQSgpuMPjn">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("tQSgpuMPjn", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#máscaras-de-convolución" class="h2" data-content-highlight="máscaras-de-convolución">Máscaras de convolución</a><a href="#máscaras-en-videos" class="h1" data-content-highlight="máscaras-en-videos">Máscaras en videos</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="AXQMmEaa_D">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("AXQMmEaa_D", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
+      "></iframe><script id="XuOnwLvmeS">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("XuOnwLvmeS", "7H5M9Vp+I8cVV99ELLvnzg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="contentnav-0-0-16" data-no-search=""><a href="#image-and-video-processing" class="h1" data-content-highlight="image-and-video-processing">Image and video processing</a><a href="#máscaras-de-convolución" class="h2" data-content-highlight="máscaras-de-convolución">Máscaras de convolución</a><a href="#máscaras-en-videos" class="h1" data-content-highlight="máscaras-en-videos">Máscaras en videos</a></div></div><div id="-codedoc-toc" class="toc-0-0-13"><div class="content-0-0-14"><p><a href="/vc/">Home</a></p><div class="collapse-0-0-9 "><script id="ESBPfxIBxa">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("ESBPfxIBxa", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Workshops</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/workshops/imaging">Imaging &amp; Video</a>
 <a href="/vc/docs/workshops/imagingRGBGrayScale">Imaging RGB-GrayScale</a>
 <a href="/vc/docs/workshops/imagingLumaGrayScale">Imaging Luma-GrayScale</a>
 <a href="/vc/docs/workshops/imagingNegative">Imaging Negative</a>
@@ -188,13 +189,13 @@ function vidLoad() {
 <a href="/vc/docs/workshops/rendering">Rendering</a>
 <a href="/vc/docs/workshops/algovis">Algovis</a>
 <a href="/vc/docs/workshops/cg">Computer Graphics</a>
-<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="BI_cKRgLqM">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("BI_cKRgLqM", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
+<a href="/vc/docs/workshops/hci">HCI</a></p></div></div><div class="collapse-0-0-9 "><script id="mMJggvZQxb">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("mMJggvZQxb", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">P5 Code Snippets</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/snippets/component">P5 Component</a>
 <a href="/vc/docs/snippets/basic">Basics</a>
 <a href="/vc/docs/snippets/video-dom">Video on dom</a>
 <a href="/vc/docs/snippets/video-canvas">Video on canvas</a>
 <a href="/vc/docs/snippets/3d">3D</a>
 <a href="/vc/docs/snippets/lib">Libs</a>
-<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="QuuxEnh_Sh">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("QuuxEnh_Sh", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
+<a href="/vc/docs/snippets/sound">Sound</a></p></div></div><div class="collapse-0-0-9 "><script id="mDZApzcTbO">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("mDZApzcTbO", "lqlJyab6eRMclBlk8Ftb8g==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script><div class="label" onclick="this.parentElement.classList.toggle('open')"><span class="text">Members</span><span class="icon-font closed">chevron_right</span></div><div class="content"><p><a href="/vc/docs/members/Andres-Felipe-Moya-Rodriguez">Andres Felipe Moya Rodríguez</a>
 <a href="/vc/docs/members/Diego-Armando-Velasquez-Vargas">Diego Armando Velasquez Vargas</a>
 <a href="/vc/docs/members/Hubert-Alejandro-Tovar-Strubinger">Hubert Alejandro Tovar Strubinger</a>
-<a href="/vc/docs/members/Laura-Natalia-Gonzalez-Mora">Laura Natalia Gonzalez Mora</a></p></div></div></div><div class="search-0-0-15"><script id="LoOQKyTxov">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("LoOQKyTxov", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="vQcftWzVGa">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("vQcftWzVGa", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="aYXNcEbAhk">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("aYXNcEbAhk", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="_QqlOagoML">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("_QqlOagoML", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
+<a href="/vc/docs/members/Laura-Natalia-Gonzalez-Mora">Laura Natalia Gonzalez Mora</a></p></div></div></div><div class="search-0-0-15"><script id="nk_fwbUEjp">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("nk_fwbUEjp", "MChpnTvN8BpuKyiMGzmSYw==", {"repo":"vc","user":"htovars","root":"docs/md","pick":"\\.md$","drop":"(^_)|(\\/_)"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><div class="footer-0-0-12"><div class="left"><script id="PjyrZTKysc">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("PjyrZTKysc", "X5W7He+ge/Kg3B6xB+T5gg==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div><div class="main"><div class="inside"><a href="https://github.com/htovars/vc/" target="_blank">GitHub</a></div></div><div class="right"><script id="IAvCAjJqOj">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("IAvCAjJqOj", "3ehN2Qj7wHC4donAKEDe0Q==", {});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></div></div><script id="_GtZQMlfhj">(function(){function load(){if (window.__sdh_transport){window.__sdh_transport("_GtZQMlfhj", "bIAidu6MCPVPBcGGWLCR6Q==", {"namespace":"/vc"});} }; if (document.readyState == 'complete') load(); else window.addEventListener('load', load); })()</script></body></html>
