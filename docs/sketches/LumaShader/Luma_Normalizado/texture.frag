@@ -20,9 +20,9 @@ void main() {
   r_norm = red/255
   g_norm = green/255
   b_norm = blue/255
-  r_prim = 255 * Math.pow((r_norm),(1/2.2));
-  g_prim = 255 * Math.pow((g_norm),(1/2.2));
-  b_prim = 255 * Math.pow((b_norm),(1/2.2));
+  r_prim = 255 * pow((r_norm),(1/2.2));
+  g_prim = 255 * pow((g_norm),(1/2.2));
+  b_prim = 255 * pow((b_norm),(1/2.2));
   gray = (r_prim*0.299 + g_prim*0.587 + b_prim*0.0114);
   grayTextureColor.r = gray;
   grayTextureColor.g = gray;
