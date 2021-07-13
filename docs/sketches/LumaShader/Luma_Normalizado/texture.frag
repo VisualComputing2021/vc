@@ -9,7 +9,6 @@ varying vec4 vVertexColor;
 vec4 grayTextureColor;
 float gray;
 float red;
-float green;
 float blue;
 float r_norm;
 float g_norm;
