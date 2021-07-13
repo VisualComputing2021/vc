@@ -16,7 +16,7 @@ function setup() {
   theShader.setUniform("texture", img);
 }
 function draw() {
-  background(0);
+  background(125);
   beginShape();
   vertex(-planeSide/2, -planeSide/2, 0, 0); // esquina inferior izquierda
   vertex(planeSide/2, -planeSide/2, 1, 0); // esquina inferior derecha
