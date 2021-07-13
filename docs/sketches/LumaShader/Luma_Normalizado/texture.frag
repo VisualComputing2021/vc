@@ -23,12 +23,12 @@ varying vec2 vTexCoord;
 void main() {
   
   grayTextureColor = texture2D(texture, vTexCoord);
-  red = grayTextureColor.r
-  green = grayTextureColor.g
-  blue = grayTextureColor.b
-  r_norm = red/255.0
-  g_norm = green/255.0
-  b_norm = blue/255.0
+  red = grayTextureColor.r;
+  green = grayTextureColor.g;
+  blue = grayTextureColor.b;
+  r_norm = red/255.0;
+  g_norm = green/255.0;
+  b_norm = blue/255.0;
   r_prim = 255.0 * pow(r_norm,0.45);
   g_prim = 255.0 * pow(g_norm,0.45);
   b_prim = 255.0 * pow(b_norm,0.45);
