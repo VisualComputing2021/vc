@@ -36,7 +36,6 @@ function setup() {
       if((row == 0 || row == ROWS - 1) || (column == 0 || column == COLS - 1))
         quadrille.fill(floor(row), floor(column),c)
     }
-    
   }
 }
 function draw() {
