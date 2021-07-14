@@ -30,7 +30,14 @@ let start, end
 function setup() {
   createCanvas(COLS * LENGTH, ROWS * LENGTH);
   c = color('#007ACC');
-  quadrille = createQuadrille(floor(ROWS), floor(COLS));  
+  quadrille = createQuadrille(floor(ROWS), floor(COLS));
+  for (let row = 0; row < ROWS; row++) {
+    for (let column = 0; column < COLS; column++) {
+      if((row == 0 || row == ROWS - 1) || (column == 0 || column == COLS - 1))
+        quadrille.fill(floor(row), floor(column),c)
+    }
+    
+  }
 }
 function draw() {
   background('#060621');
