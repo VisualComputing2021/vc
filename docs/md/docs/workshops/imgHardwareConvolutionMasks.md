@@ -20,7 +20,7 @@ En el fragment shader se accede a los valores de color de los 8 texeles adyacent
 >
 > > :Tab title=P5Code
 > >
-> > ```md
+> > ```js
 let img;
 let theShader;
 let planeSide = 400;
@@ -108,7 +108,7 @@ function draw() {
 >
 > > :Tab title=Fragment Shader
 > >
-> > ```md
+> > ```glsl
 // texture.frag 
 precision mediump float;
 //uniform variables coming from p5

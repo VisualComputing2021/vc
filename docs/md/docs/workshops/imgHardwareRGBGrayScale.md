@@ -16,7 +16,7 @@ El vertex shader en este ejemplo, el cual es en escencia trivial y por lo tanto 
 >
 > > :Tab title=P5Code
 > >
-> > ```md
+> > ```js
 let theShader;
 let img;
 let planeSide = 400;
@@ -47,7 +47,7 @@ function draw() {
 >
 > > :Tab title=Fragment Shader
 > >
-> > ```md
+> > ```glsl
 // texture.frag 
 precision mediump float;
 uniform sampler2D texture;

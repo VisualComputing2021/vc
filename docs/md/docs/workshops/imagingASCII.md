@@ -86,7 +86,7 @@ Para esta sección se desarrolló un programa que, basado en la escala de grises
 > > >}
 >
 > > :Tab title=P5Code
-> > ```md
+> > ```js
 > > > :P5 width=350, height=450
 > > > 
 > > >  let img;
@@ -267,7 +267,7 @@ En la siguiente prueba se puede modificar el tamaño de letra con la slider sumi
 > > >}
 >
 > > :Tab title=P5Code
-> > ```md
+> > ```js
 > > > :P5 width=1000, height=891
 > > >
 > > >let img;

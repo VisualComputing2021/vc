@@ -51,7 +51,7 @@ p5js también posee una función diseñada para obtener este mismo resultado, la
 > >
 > > <center>IMAGEN ORIGINAL<center/>
 > >
-> > ```md
+> > ```js
 > > > :P5 width=350, height=450
 > > >
 > > > let img;
@@ -65,7 +65,7 @@ p5js también posee una función diseñada para obtener este mismo resultado, la
 > > ```
 > > <center>IMAGEN BLANCO Y NEGRO<center/>
 > >
-> > ```md
+> > ```js
 > > > :P5 width=350, height=450
 > > >
 > > > let img;
@@ -142,7 +142,7 @@ p5js también posee una función diseñada para obtener este mismo resultado, la
 > >
 > > <center>VIDEO ORIGINAL<center/>
 > >
-> > ```md
+> > ```js
 > > > :P5 width=350, height=250
 > > >
 > > >let vid;
@@ -165,7 +165,7 @@ p5js también posee una función diseñada para obtener este mismo resultado, la
 > > ```
 > > <center>VIDEO EN BLANCO Y NEGRO<center/>
 > >
-> > ```md 
+> > ```js 
 > > > :P5 width=350, height=250
 > > >
 > > >let vid;

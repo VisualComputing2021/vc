@@ -17,7 +17,7 @@ El círculo rojo, que se puede controlar con las teclas asdw, emite un rayo en l
 >
 > > :Tab title=P5Code
 > >
-> > ```md
+> > ```js
 const ROWS = 30;
 const COLS = 30;
 const LENGTH = 20;

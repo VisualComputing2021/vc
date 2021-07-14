@@ -58,7 +58,7 @@ Para esta sección se desarrolló un programa para generar el negativo de una im
 > >
 > > <center>IMAGEN EN NEGATIVO<center/>
 > >
-> > ```md
+> > ```js
 > > > :P5 width=350, height=450
 > > >
 > > > let img;
@@ -144,7 +144,7 @@ Para esta sección se desarrolló un programa para generar el negativo de una im
 > >
 > > <center>VIDEO EN NEGATIVO<center/>
 > >
-> > ```md
+> > ```js
 > > > :P5 width=350, height=250
 > > >
 > > > let vid;
