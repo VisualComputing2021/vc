@@ -1,7 +1,7 @@
 const ROWS = 30;
 const COLS = 30;
 const LENGTH = 20;
-var t
+var quadrille
 var c;
 let x = 200
 let y = 200
@@ -11,14 +11,22 @@ function setup() {
   createCanvas(COLS * LENGTH, ROWS * LENGTH);
   c = color('#007ACC');
   
-  t = createQuadrille(floor(ROWS), floor(COLS));  
+  quadrille = createQuadrille(floor(ROWS), floor(COLS));
+  
+  for (let row = 0; row < ROWS; row++) {
+    for (let column = 0; column < COLS; column++) {
+      if((row == 0 || row == ROWS - 1) || (column == 0 || column == COLS - 1))
+        quadrille.fill(floor(row), floor(column),c)
+    }
+    
+  }
 }
 
 function draw() {
   background('#060621');
 
   end = createVector(mouseX, mouseY)
-  drawQuadrille(t, 0, 0, LENGTH, 1, 'black', true);
+  drawQuadrille(quadrille, 0, 0, LENGTH, 1, 'black', true);
 
   fill(0,255,0)
   stroke(0,255,0)
@@ -92,7 +100,7 @@ let fDistance = 0.0;
     if (currentPositionVector.x >= 0 && currentPositionVector.x < width && currentPositionVector.y >= 0 && currentPositionVector.y < height)
     {
       
-      if(t.read(floor(currentPositionVector.y/LENGTH), floor(currentPositionVector.x/LENGTH)) == c)
+      if(quadrille.read(floor(currentPositionVector.y/LENGTH), floor(currentPositionVector.x/LENGTH)) == c)
       {
         bTileFound = true;
         stroke(255, 255, 255)
@@ -126,6 +134,6 @@ function mouseDragged(){
 
   let thisRow = map(mouseY, 0, height, 0, ROWS, true)
   let thisColumn = map(mouseX, 0, width, 0, COLS, true)
-  t.fill(floor(thisRow), floor(thisColumn),c)
+  quadrille.fill(floor(thisRow), floor(thisColumn),c)
 }
 
