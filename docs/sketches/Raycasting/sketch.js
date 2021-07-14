@@ -1,27 +1,7 @@
-# Rendering
-
-## DDA Raycasting algorithm
-
-
-
-Para probar el algoritmo, y ver cómo podría ser aplicado para resolver el problema de visibilidad en una superficie 2D con obstáculos se presenta el siguiente código (Si tiene problemas interactuando con él, haga click sobre cualquier punto de la cuadrícula):
-
-Con el cursor puede desplazar el círculo verde sobre la plantilla. haciendo y sosteniendo el click izquierdo puede "colorear" las celdas de la cuadrícula. Las celdas coloreadas serán obstáculos.
-
-El círculo rojo, que se puede controlar con las teclas asdw, emite un rayo en la dirección del cursor. Podrá ver como el rayo choca con el obstáculo más cercano.
-
-> :Tabs
-> > :Tab title=Presentación
-> > >
-> > > :P5 lib1=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js, sketch=/docs/sketches/Raycasting/sketch.js
->
-> > :Tab title=P5Code
-> >
-> > ```md
 const ROWS = 30;
 const COLS = 30;
 const LENGTH = 20;
-var quadrille
+var t
 var c;
 let x = 200
 let y = 200
@@ -30,33 +10,40 @@ let start, end
 function setup() {
   createCanvas(COLS * LENGTH, ROWS * LENGTH);
   c = color('#007ACC');
-  quadrille = createQuadrille(floor(ROWS), floor(COLS));  
+  
+  t = createQuadrille(floor(ROWS), floor(COLS));  
 }
+
 function draw() {
   background('#060621');
+
   end = createVector(mouseX, mouseY)
-  drawQuadrille(quadrille, 0, 0, LENGTH, 1, 'black', true);
-  //
+  drawQuadrille(t, 0, 0, LENGTH, 1, 'black', true);
+
   fill(0,255,0)
   stroke(0,255,0)
   circle(mouseX, mouseY, 10)
-  //
+
   fill(255, 0, 0)
   stroke(255, 0, 0)
   updatePosition()
   circle(x, y, 10)
-  //
+  
   stroke(255, 255, 0)
   start = createVector(x, y)
   let direction = end.sub(start).normalize()
-  //
+
   let scalingVector = createVector(
     sqrt(1 + pow(direction.y/direction.x, 2)),
     sqrt(1 + pow(direction.x/direction.y, 2)) 
     )
+
+
+
 let currentPositionVector = createVector(start.x, start.y);
 let rayLengths = createVector(0, 0);
 let stepVector = createVector();
+
 // Establish Starting Conditions
 if (direction.x < 0)
 {
@@ -69,6 +56,7 @@ else
   stepVector.set(1, stepVector.y);
   rayLengths.set((currentPositionVector.x + 1 - start.x) * scalingVector.x, rayLengths.y);
 }
+
 if (direction.y < 0)
 {
   //console.log(direction.x, direction.y)
@@ -84,6 +72,7 @@ else
 let bTileFound = false;
 let fMaxDistance = 600.0;
 let fDistance = 0.0;
+
   while (!bTileFound && fDistance < fMaxDistance)
   {
     // Walk along shortest path
@@ -99,9 +88,11 @@ let fDistance = 0.0;
       fDistance = rayLengths.y;
       rayLengths.y += scalingVector.y;
     }
+
     if (currentPositionVector.x >= 0 && currentPositionVector.x < width && currentPositionVector.y >= 0 && currentPositionVector.y < height)
     {
-      if(quadrille.read(floor(currentPositionVector.y/LENGTH), floor(currentPositionVector.x/LENGTH)) == c)
+      
+      if(t.read(floor(currentPositionVector.y/LENGTH), floor(currentPositionVector.x/LENGTH)) == c)
       {
         bTileFound = true;
         stroke(255, 255, 255)
@@ -112,7 +103,10 @@ let fDistance = 0.0;
       }
     }
   }
+  
+
 }
+
 function updatePosition(){
   if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
     x-=5;
@@ -123,14 +117,15 @@ function updatePosition(){
   }else if(keyIsDown(DOWN_ARROW)|| keyIsDown(83)){
     y+=5;
   }
+
   return {"x": x, "y": y}
 }
+
+
 function mouseDragged(){
+
   let thisRow = map(mouseY, 0, height, 0, ROWS, true)
   let thisColumn = map(mouseX, 0, width, 0, COLS, true)
-  quadrille.fill(floor(thisRow), floor(thisColumn),c)
+  t.fill(floor(thisRow), floor(thisColumn),c)
 }
-> > ```
 
-
-> :ToCPrevNext
