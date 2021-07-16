@@ -32,6 +32,10 @@
 >  >  >  >
 >  >  >  > [Imaging](/docs/workshops/imgHardwareConvolutionMasks)
 >  >  >  > [Video]()
+>  >  >  
+>  >  >  > :Collapse label=Mosaic
+>  >  >  >
+>  >  >  > [Imaging ASCII](/docs/workshops/imgHardwareASCII)
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
