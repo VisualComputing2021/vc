@@ -38,6 +38,7 @@ Al igual que el anterior metodo de RGB aqui usamos la variable varying vTexCoord
 > > >   createCanvas(400, 400);
 > > >   image(img, 0, 0,width,height);
 > > > }
+> >
 > 
 > > :Tab title=Luma Ponderado
 > > >
