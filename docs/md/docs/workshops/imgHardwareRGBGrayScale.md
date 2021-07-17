@@ -110,7 +110,6 @@ function draw() {
   vertex(planeSide / 2, planeSide / 2, 1, 1); // esquina superior derecha
   vertex(-planeSide / 2, planeSide / 2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
-
   theShader.setUniform("texture", video);
   theShader.setUniform("textureWidth", 858.0);
   theShader.setUniform("textureHeight", 480.0);
