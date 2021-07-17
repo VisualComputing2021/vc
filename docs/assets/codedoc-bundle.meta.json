@@ -1,0 +1,126 @@
+{
+  "init": [
+    {
+      "name": "initJssCs",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/transport/setup-jss.js",
+      "hash": "DNrj9oF72JDZmT5JpqB5MA=="
+    },
+    {
+      "name": "installTheme",
+      "filename": "/home/runner/work/vc/vc/.codedoc/content/theme.ts",
+      "hash": "Ee7uESb/QVRDo1Pq0BbGDA=="
+    },
+    {
+      "name": "zoomOnFormula",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/formula/zoom-on-formula.js",
+      "hash": "ZPCLSgXUWhmVkgABPlENJQ=="
+    },
+    {
+      "name": "codeSelection",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/selection.js",
+      "hash": "Se07MpPkDQ8HWTxIDftrEw=="
+    },
+    {
+      "name": "sameLineLengthInCodes",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/same-line-length.js",
+      "hash": "Map5ecEb4NVNv0/QD+ZE3A=="
+    },
+    {
+      "name": "initHintBox",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/line-hint/index.js",
+      "hash": "FngPUEsi8Zw/NNQWqR613A=="
+    },
+    {
+      "name": "initCodeLineRef",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/line-ref/index.js",
+      "hash": "BmgzQC6H5CrPYQAIFiZXFw=="
+    },
+    {
+      "name": "initSmartCopy",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/smart-copy.js",
+      "hash": "TDfbLrPMbnmKWpRdCyehTQ=="
+    },
+    {
+      "name": "copyHeadings",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/heading/copy-headings.js",
+      "hash": "k7JN/wzVKW9o2/xVY1z7mw=="
+    },
+    {
+      "name": "contentNavHighlight",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/contentnav/highlight.js",
+      "hash": "0BP9dHLr6GeJn74oCZhwCw=="
+    },
+    {
+      "name": "loadDeferredIFrames",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/transport/deferred-iframe.js",
+      "hash": "yx/uXv3RO1y1ApqwGXbm3w=="
+    },
+    {
+      "name": "smoothLoading",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/transport/smooth-loading.js",
+      "hash": "TCtd2IQT4JYjFkK+kvKaEA=="
+    },
+    {
+      "name": "tocHighlight",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/toc-highlight.js",
+      "hash": "U6ApG3hMhLalqkO798gZmA=="
+    },
+    {
+      "name": "postNavSearch",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/search/post-nav/index.js",
+      "hash": "k4R0cRS/AtXkMn0JpedKNA=="
+    },
+    {
+      "name": "copyLineLinks",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/code/line-links/copy-line-link.js",
+      "hash": "KDIhTKYG7bQrTlUvgii/9Q=="
+    },
+    {
+      "name": "gatherFootnotes",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/footnote/gather-footnotes.js",
+      "hash": "jzB/Nwlt5ch6Cn9DnxQToQ=="
+    }
+  ],
+  "components": [
+    {
+      "name": "ToCPrevNext",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/prevnext/index.js",
+      "hash": "7H5M9Vp+I8cVV99ELLvnzg=="
+    },
+    {
+      "name": "CollapseControl",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/collapse/collapse-control.js",
+      "hash": "lqlJyab6eRMclBlk8Ftb8g=="
+    },
+    {
+      "name": "GithubSearch",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/misc/github/search.js",
+      "hash": "MChpnTvN8BpuKyiMGzmSYw=="
+    },
+    {
+      "name": "ToCToggle",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/page/toc/toggle/index.js",
+      "hash": "X5W7He+ge/Kg3B6xB+T5gg=="
+    },
+    {
+      "name": "DarkModeSwitch",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/darkmode/index.js",
+      "hash": "3ehN2Qj7wHC4donAKEDe0Q=="
+    },
+    {
+      "name": "ConfigTransport",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/transport/config.js",
+      "hash": "bIAidu6MCPVPBcGGWLCR6Q=="
+    },
+    {
+      "name": "TabSelector",
+      "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/components/tabs/selector.js",
+      "hash": "6jzvkXXQW/pnjrYP6mla2g=="
+    }
+  ],
+  "renderer": {
+    "name": "getRenderer",
+    "filename": "/home/runner/work/vc/vc/.codedoc/node_modules/@codedoc/core/dist/es6/transport/renderer.js",
+    "hash": "gJnC4d3iIK+odX9RTZZEAA=="
+  }
+}
