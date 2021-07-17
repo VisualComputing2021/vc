@@ -73,6 +73,29 @@ void main() {
 Usaremos el mismo shader creado para las imagenes para aplicar al video así no hacemos duplicación de codigo así el fragment shader es capaz de generar la escala de grises con los mismos parametros de las imagenes.
 
 > :Tabs
+> > :Tab title=Video Original
+> > >
+> > > :P5 width=400, height=400
+> > >
+> > > let vid;
+> > >
+> > > function setup() {
+> > >  noCanvas();
+> > >
+> > >  vid = createVideo(
+> > >    ['/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4'],
+> > >    vidLoad
+> > >  );
+> > >
+> > >  vid.size(400, 400);
+> > >}
+> > >
+> > >// This function is called when the video loads
+> > > function vidLoad() {
+> > >  vid.loop();
+> > >  vid.volume(0);
+> > >} 
+>
 > > :Tab title=Presentación
 > > >
 > > > :P5 sketch=/docs/sketches/TextureShader/TextureVideoShader.js, width=400, height=400
