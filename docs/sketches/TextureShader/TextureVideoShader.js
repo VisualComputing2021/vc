@@ -11,7 +11,7 @@ function preload() {
   video = createVideo("/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4");
 }
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(858, 480, WEBGL);
   video.loop();
   video.hide();
   video.volume(0);
@@ -30,6 +30,6 @@ function draw() {
   endShape(CLOSE);
 
   theShader.setUniform("texture", video);
-  theShader.setUniform("textureWidth", 400.0);
-  theShader.setUniform("textureHeight", 400.0);
+  theShader.setUniform("textureWidth", 858.0);
+  theShader.setUniform("textureHeight", 480.0);
 }
