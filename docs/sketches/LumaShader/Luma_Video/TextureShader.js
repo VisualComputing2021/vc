@@ -9,7 +9,7 @@ function preload(){
 }
 function setup() {
   // shaders require WEBGL mode to work
-  createCanvas(858, 480, WEBGL);
+  createCanvas(400, 400, WEBGL);
   video.loop();
   video.hide();
   video.volume(0);
@@ -29,8 +29,8 @@ function draw() {
   endShape(CLOSE);
 
   theShader.setUniform("texture", video);
-  theShader.setUniform("textureWidth", 858.0);
-  theShader.setUniform("textureHeight", 480.0)
+  theShader.setUniform("textureWidth", 400.0);
+  theShader.setUniform("textureHeight", 400.0)
 }
 
 
