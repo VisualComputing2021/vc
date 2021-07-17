@@ -28,21 +28,21 @@ Al igual que el anterior metodo de RGB aqui usamos la variable varying vTexCoord
 > :Tabs
 > > :Tab title=Imagen Original
 > > >
-> > > :P5 width=350, height=450
+> > > :P5 width=400, height=400
 > > >
 > > > let img;
 > > > function preload(){
 > > >   img = loadImage('/vc/docs/sketches/LumaShader/Luma_Normalizado/DeepMind.jpg');
 > > >}
 > > > function setup() {
-> > >   createCanvas(350, 450);
+> > >   createCanvas(400, 400);
 > > >   image(img, 0, 0,width,height);
 > > > }
-> > 
+> 
 > > :Tab title=Luma Ponderado
 > > >
 > > > :P5 sketch=/docs/sketches/LumaShader/Luma_Ponderado/TextureShader.js, width=400, height=400
-> >
+> 
 > > :Tab title=Luma Normalizado
 > > >
 > > > :P5 sketch=/docs/sketches/LumaShader/Luma_Normalizado/TextureShader.js, width=400, height=400
