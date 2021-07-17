@@ -203,7 +203,7 @@ Conversión con una imagen pequeña (350px,450px):
 > > >}
 >
 > > :Tab title=P5Code
-> > ```md
+> > ```js
 > > > :P5 width=350, height=490
 > > >
 > > > let img;
@@ -597,7 +597,7 @@ Conversión con una imagen grande (1500px,1000px), se debe considerar que el tie
 > > >}
 >
 > > :Tab title=P5Code
-> > ```md
+> > ```js
 > > > :P5 width=1000, height=706
 > > >
 > > > let img;
