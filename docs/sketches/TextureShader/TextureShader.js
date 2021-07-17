@@ -24,7 +24,3 @@ function draw() {
   vertex(-planeSide/2, planeSide/2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
 }
-
-
-
-
