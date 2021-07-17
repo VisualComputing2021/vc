@@ -1,7 +1,6 @@
 let theShader;
-let img;
+let video;
 let planeSide = 400;
-let button;
 function preload(){
   // load the shader
   theShader = loadShader('/vc/docs/sketches/LumaShader/Luma_Ponderado/texture.vert','/vc/docs/sketches/LumaShader/Luma_Ponderado/texture.frag');
@@ -32,7 +31,3 @@ function draw() {
   theShader.setUniform("textureWidth", 400.0);
   theShader.setUniform("textureHeight", 400.0)
 }
-
-
-
-

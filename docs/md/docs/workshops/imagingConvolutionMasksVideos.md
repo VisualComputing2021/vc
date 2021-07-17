@@ -19,7 +19,7 @@ Usando la función general para la convolución:
 > > >  noCanvas();
 > > >
 > > >  vid = createVideo(
-> > >    ['/vc/docs/sketches/walk.mp4'],
+> > >    ['/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4'],
 > > >    vidLoad
 > > >  );
 > > >
