@@ -75,7 +75,7 @@ Usaremos el mismo shader creado para las imagenes para aplicar al video así no 
 > :Tabs
 > > :Tab title=Presentación
 > > >
-> > > :P5 sketch=/docs/sketches/TextureShader/TextureVideoShader.js, width=400, height=400
+> > > :P5 sketch=/docs/sketches/TextureShader/TextureVideoShader.js, width=858, height=480
 >
 > > :Tab title=P5Code
 > >
@@ -93,7 +93,7 @@ function preload() {
   video = createVideo("/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4");
 }
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(858, 480, WEBGL);
   video.loop();
   video.hide();
   video.volume(0);
@@ -111,8 +111,8 @@ function draw() {
   vertex(-planeSide / 2, planeSide / 2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
   theShader.setUniform("texture", video);
-  theShader.setUniform("textureWidth", 400.0);
-  theShader.setUniform("textureHeight", 400.0);
+  theShader.setUniform("textureWidth", 858.0);
+  theShader.setUniform("textureHeight", 480.0);
 }
 > > ```
 >

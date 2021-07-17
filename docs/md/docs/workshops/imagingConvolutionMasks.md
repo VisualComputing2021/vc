@@ -106,7 +106,7 @@ Retorna la misma imágen
 > > > \end{pmatrix}
 > 
 > > :Tab title=P5Code
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > >let img;
@@ -395,7 +395,7 @@ Identifica los puntos en una imagen digital en la que el brillo de la imagen cam
 > 
 > > :Tab title=P5Code
 > > >Solamente se pone un código porque lo único que cambia es el Kernel
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
@@ -542,7 +542,7 @@ Incrementa el contraste entre lasr regiones brillantes y oscuras para resaltar l
 > > > \end{pmatrix}
 >
 > > :Tab title=P5Code
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
@@ -690,7 +690,7 @@ Asigna a cada pixel un valor igual al valor promedio de los pixeles que lo rodea
 > > > ```
 >
 > > :Tab title=P5Code
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
@@ -839,7 +839,7 @@ Es un suavizado de pixeles, swe mezclan los colores de los pixeles adyacentes el
 > > > ```
 >
 > > :Tab title=P5Code
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
@@ -985,7 +985,7 @@ Cada pixel de la imagen es reemplazado con luz o sombra
 > > > \end{pmatrix}
 >
 > > :Tab title=P5Code
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
@@ -1204,7 +1204,7 @@ La diferencia entre la intensidad más alta y la más baja
 >
 > > :Tab title=P5Code
 > > >Solamente se pone un código porque lo único que cambia es el Kernel
-> > ```js
+> > ```md
 > > > :P5  width=350, height=500
 > > >
 > > > let img;
