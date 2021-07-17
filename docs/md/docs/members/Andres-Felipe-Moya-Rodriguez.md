@@ -125,7 +125,7 @@ En 1904, Mary Everest Boole (matemática inglesa) inventó las ***Curve stitchin
 >
 > > :Tab title=P5Code
 > >
-> > ```md
+> > ```js
 > > > :P5 width=800, height=800
 > > >
 > > >function setup() {
@@ -243,7 +243,7 @@ Si no puede interactuar con el entorno, haga click dentro de él
 >
 > > :Tab title=P5Code
 > >
-> > ```md
+> > ```js
 let angle = 0;
 let img;
 let camX;
