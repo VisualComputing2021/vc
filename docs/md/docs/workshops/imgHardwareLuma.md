@@ -44,7 +44,7 @@ Al igual que el anterior metodo de RGB aqui usamos la variable varying vTexCoord
 > > >
 > > > :P5 sketch=/docs/sketches/LumaShader/Luma_Ponderado/TextureShader.js, width=400, height=400
 > 
-> > :Tab title=Codigo GLSL
+> > :Tab title=Codigo GLSL Ponderado
 > >
 > > ```glsl
 // texture.frag 
@@ -71,7 +71,7 @@ void main() {
 > > >
 > > > :P5 sketch=/docs/sketches/LumaShader/Luma_Normalizado/TextureShader.js, width=400, height=400
 > 
-> > :Tab title=Codigo GLSL
+> > :Tab title=Codigo GLSL Normalizado
 > >
 > > ```glsl
 // texture.frag 
@@ -106,7 +106,6 @@ void main() {
   grayTextureColor.g = gray;
   grayTextureColor.b = gray;
   grayTextureColor.a = 1.0;
-
   gl_FragColor = grayTextureColor * vVertexColor;  
 }
 > > ```
@@ -175,7 +174,6 @@ function draw() {
   vertex(planeSide/2, planeSide/2, 1, 1); // esquina superior derecha
   vertex(-planeSide/2, planeSide/2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
-
   theShader.setUniform("texture", video);
   theShader.setUniform("textureWidth", 400.0);
   theShader.setUniform("textureHeight", 400.0)
