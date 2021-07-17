@@ -75,7 +75,7 @@ Para ello se usa un promedio ponderado de los valores rgb de cada pixel:
 > >
 > > <center>IMAGEN BLANCO Y NEGRO<center/>
 > >
-> > ```js
+> > ```md
 > > > :P5 width=350, height=450
 > > >
 > > > let img4
@@ -283,7 +283,7 @@ En el código desarrollado se usaron
 > > 
 > > <center>IMAGEN ORIGINAL<center/>
 > >
-> > ```js
+> > ```md
 > > > :P5 width=350, height=250
 > > >
 > > > let vid;
