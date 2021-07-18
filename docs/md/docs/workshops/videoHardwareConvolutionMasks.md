@@ -32,13 +32,14 @@ let filterChoice = 1;
 let mask;
 function preload(){
 theShader = loadShader("/vc/docs/sketches/ConvolutionShader/conv.vert","/vc/docs/sketches/ConvolutionShader/conv.frag");
-video = createVideo(
-    ['/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4'],
-   vidLoad
-);
+video = createVideo('/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4');
 }
 function setup() {
 createCanvas(710, 400, WEBGL);
+video.loop();
+video.hide();
+video.volume(0);
+noStroke();
 button = createButton('Sin filtro');
 button.position(600, 10);
 button.style("color", "#00b5e2");

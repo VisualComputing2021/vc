@@ -31,7 +31,7 @@
 >  >  >  > :Collapse label=Convolution Masks
 >  >  >  >
 >  >  >  > [Imaging](/docs/workshops/imgHardwareConvolutionMasks)
->  >  >  > [Video]()
+>  >  >  > [Video](/docs/workshops/videoHardwareConvolutionMasks)
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
