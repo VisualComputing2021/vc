@@ -11,6 +11,30 @@ Se implementaron máscaras de convolución de 3x3, al igual que en las imágenes
 > > >
 > > > :P5 sketch=/docs/sketches/ConvolutionShader/VideoConvolution.js, width=710, height=400
 >
+> > :Tab title=Kernel
+> > > :Formula
+> > >
+> > > \begin{pmatrix}
+> > > 0 & 0 & 0 `\\`      
+> > > 0 & 1 & 0 `\\`
+> > > 0 & 0 & 0
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > 1/9 & 1/9 & 1/9`\\`      
+> > > 1/9 & 1/9 & 1/9 `\\`
+> > > 1/9 & 1/9 & 1/9
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > -1 & -1 & -1 `\\`      
+> > > -1 & +9 & -1 `\\`
+> > > -1 & -1 & -1
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > -1 & -2 & -1 `\\`      
+> > >  0 &  0 &  0 `\\`
+> > >  1 &  2 &  1
+> > > \end{pmatrix}
+> 
 > > :Tab title=P5Code
 > >
 > > ```js
@@ -140,28 +164,4 @@ convolution.a = 1.0;
 gl_FragColor = convolution * vVertexColor;  
 }
 > > ```
->
-> > :Tab title=Kernel
-> > > :Formula
-> > >
-> > > \begin{pmatrix}
-> > > 0 & 0 & 0 `\\`      
-> > > 0 & 1 & 0 `\\`
-> > > 0 & 0 & 0
-> > > \end{pmatrix}
-> > > \begin{pmatrix}
-> > > 1/9 & 1/9 & 1/9`\\`      
-> > > 1/9 & 1/9 & 1/9 `\\`
-> > > 1/9 & 1/9 & 1/9
-> > > \end{pmatrix}
-> > > \begin{pmatrix}
-> > > -1 & -1 & -1 `\\`      
-> > > -1 & +9 & -1 `\\`
-> > > -1 & -1 & -1
-> > > \end{pmatrix}
-> > > \begin{pmatrix}
-> > > -1 & -2 & -1 `\\`      
-> > >  0 &  0 &  0 `\\`
-> > >  1 &  2 &  1
-> > > \end{pmatrix}
 > :ToCPrevNext
