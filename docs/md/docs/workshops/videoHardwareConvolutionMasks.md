@@ -10,7 +10,7 @@ Se implementaron máscaras de convolución de 3x3, al igual que en las imágenes
 > :Tabs
 > > :Tab title=Presentación
 > > >
-> > > :P5 sketch=vc/docs/sketches/ConvolutionShader/VideoConvolution.js, width=710, height=400
+> > > :P5 sketch=/docs/sketches/ConvolutionShader/VideoConvolution.js, width=710, height=400
 >
 > > :Tab title=P5Code
 > >
