@@ -1,16 +1,9 @@
 # Image and video processing
 
 ## Convolución en videos
+Para los videos también se puede usar el poder de paralelización que ofrecen los núcleos de una gpu.
 
-El poder de paralelización que ofrecen los núcleos de una gpu puede ser aprovechado para el cálculo de convolución de imágenes, ya que, en esencia, esta consiste en una serie de operaciones sobre pixeles que son completamente independientes una de la otra, siendo candidatos ideales para la paralelización.
-
-Para este ejemplo se implementaron máscaras de convolución de 3x3.
-
-Además de las variables varaying usadas en ejercicios anteriores, aquí se definen variables uniformes. Estas son:
--   u_img_unit: Vector de dos posiciones que contiene las dimensiones de cada texel de la imagen original. Esta variable permitirá acceder a los texeles adyacentes al actual para poder hacer el cálculo.
-- u_mask: Corresponde a la matriz de convolución que se quiera aplicar colapsada a una sola dimensión. El usuario puede escoger entre cuatro máscaras diferentes.
-
-En el fragment shader se accede a los valores de color de los 8 texeles adyacentes de la imagen (sumado al texel actual), obteniendo 9 valores diferentes, los cuales se operan en una suma ponderada, donde los 9 pesos van indicados en el vector u_mask; y finalmente el valor resultante es asignado al fragmento correspondiente.
+Se implementaron máscaras de convolución de 3x3, al igual que en las imágenes y se usa el mismo algoritmo, en el fragment shader se accede a los valores de color de los 8 texeles adyacentes de la imagen (sumado al texel actual), obteniendo 9 valores diferentes, los cuales se operan en una suma ponderada, donde los 9 pesos van indicados en el vector u_mask; y finalmente el valor resultante es asignado al fragmento correspondiente.
 
 
 > :Tabs
@@ -147,4 +140,28 @@ convolution.a = 1.0;
 gl_FragColor = convolution * vVertexColor;  
 }
 > > ```
+>
+> > :Tab title=Kernel
+> > > :Formula
+> > >
+> > > \begin{pmatrix}
+> > > 0 & 0 & 0 `\\`      
+> > > 0 & 1 & 0 `\\`
+> > > 0 & 0 & 0
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > 1/9 & 1/9 & 1/9`\\`      
+> > > 1/9 & 1/9 & 1/9 `\\`
+> > > 1/9 & 1/9 & 1/9
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > -1 & -1 & -1 `\\`      
+> > > -1 & +9 & -1 `\\`
+> > > -1 & -1 & -1
+> > > \end{pmatrix}
+> > > \begin{pmatrix}
+> > > -1 & -2 & -1 `\\`      
+> > >  0 &  0 &  0 `\\`
+> > >  1 &  2 &  1
+> > > \end{pmatrix}
 > :ToCPrevNext
