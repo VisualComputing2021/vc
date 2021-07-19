@@ -18,18 +18,9 @@ Usando la función general para la convolución:
 > > > function setup() {
 > > >  noCanvas();
 > > >
-> > >  vid = createVideo(
-> > >    ['/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4'],
-> > >    vidLoad
-> > >  );
+> > >  vid = createVideo('/vc/docs/sketches/walk.mp4');
 > > >
 > > >  vid.size(640, 360);
-> > >}
-> > >
-> > >// This function is called when the video loads
-> > > function vidLoad() {
-> > >  vid.loop();
-> > >  vid.volume(0);
 > > >}
 
 #### Identidad
