@@ -1,6 +1,41 @@
 # Rendering
 
-## Line drawing algorithm
+## Noción de visibilidad
+
+Ver un objeto significa identificar las partes del objeto visibles desde la posición actual de un observador. El objeto completo puede no ser visible, ya que algunas de sus partes pueden estar ocultas para el observador. El observador también determina la forma y el tamaño de las partes visibles de un objeto. Las partes visibles de un objeto cambian cuando el observador se mueve de una posición a otra. Además, el observador puede ver varios objetos en diferentes direcciones desde su posición actual; las partes visibles de estos objetos forman la escena que rodea al observador.
+
+Supongamos que un robot quiere desplazarse desde una posición inicial hasta una posición objetivo sin colisionar con ningún objeto u obstáculo a su alrededor. El robot construye la escena a su alrededor a partir de su posición actual y luego guía su movimiento en el espacio libre que se encuentra entre él y la parte visible de los objetos que le rodean. Las posiciones del robot y de los objetos pueden representarse en el ordenador del robot mediante sus coordenadas x, y y z y, por tanto, la escena formada por las partes visibles de estos objetos puede calcularse para la posición actual del robot.
+
+La huella bidimensional del robot puede modelarse como un polígono. A partir de ese momento, se pueden producir proyecciones similares en el suelo para todos los obstáculos. De este modo se obtiene un mapa formado por polígonos en dos dimensiones. El polígono correspondiente al robot puede ser navegado utilizando este mapa evitando las colisiones con los obstáculos poligonales. Así, se puede calcular una trayectoria sin colisiones del robot desde su posición inicial hasta la posición objetivo. Durante la navegación, se calculan las partes visibles de los obstáculos poligonales para construir la escena alrededor de la posición actual del robot. 
+
+## Polígono de visibilidad
+
+Primero definimos un polígono simple P como una región del plano delimitada por un ciclo de aristas tal que cualquier par de aristas no consecutivas no se cruzan. Ahora definimos el problema de visibilidad de un polígono de la siguiente forma: Sea S un conjunto de obstáculos (ya sean segmentos o polígonos) en R^2. Sea p un punto de R^2 que no está dentro de un obstáculo. Entonces, el polígono de visibilidad de puntos V es el conjunto de puntos en R^2, tal que para cada punto de V, el segmento pq no interseca ningún obstáculo en S.
+
+![](https://i.imgur.com/ZyXbTXG.png)
+
+
+## Art gallery problem
+
+La visiblidad de las líneas atraves de un poligono y la eliminación de las superficies ocultas, son problemas fundamentales en las tareas de síntesis de imágenes de los gráficos por ordenador. Uno de los casos más estudiados es el problema de la galeria de arte, en este problema se busca la optimización de cual es la cantidad mínima de puntos en un poligono para ver los demás. Este problema planteado en 1973 por Victor Klee se puede ver geometricamente como: 
+
+> Dado un polígono simple de n vértices, ¿cuál es el número mínimo de guardias para ver cada punto del interior del polígono?.
+
+![](https://i.imgur.com/D0aTUNQ.png)
+
+Chvátal co-escritor del articulo original, demostro que la cantidad minima de guardias es n/3 para asegurar la visiblidad. La demostración la podemos encontrar en el articulo 3 de las referencias. Este problema tiene ciertas variaciones entre ellas el problema de la galería de arte cromática en este el objetivo es determinar el número mínimo de guardías necesarios (k) cada guardía tiene un color (n) k < n  para para colorear un conjunto de guardia. Un conjunto de guardias se colorea de forma que no haya dos guardias conflictivas con el mismo color, siendo dos guardias conflictivas aquellas cuyas áreas de visibilidad se solapan
+
+![](https://i.imgur.com/Ovyf7Z6.png)
+
+En 2010 LaValle, que afirmó que para cualquier valor k existe un polígono con 3k^2 + 2 vértices tal que el número mínimo de guardias necesarios es k.
+
+Finalmente otra variación de este problema es el problema de la ruta del vigilante, en esta variación los vigilantes son ahora móviles y el objetivo es determinar la ruta más corta que debe tomar un vigilante de manera que todos los puntos sean visibles desde esta ruta, este problema puede resolverse en tiempo polinómico cuando el área a vigilar es un polígono simple y NP-duro para polígonos con agujeros. 
+
+![](https://i.imgur.com/a9OqiMJ.png)
+
+## Point visibility
+
+### Line drawing algorithm (Ray Casting)
 
 Es bien sabido que nuestras pantallas son medios discretos basados en pixeles, es por esto que al renderizar una linea es necesario una aproximación para saber cuales pixeles debemos usar, sin embargo existen casos triviales dónde no es necesaria esta aproximación coomo en el caso de las líneas horizontales, verticales y de 45º.
 
@@ -24,13 +59,6 @@ Aquí podemos ver una implementación del algoritmo usando la libreria de quadri
 
 > :P5 lib1=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js, sketch=/docs/sketches/Raycasting/DDA.js
 
-## The visibility problem on 2D
-
-Los cálculos de visibilidad, como la visiblidad de las líneas atraves de un poligono y la eliminación de las superficies ocultas, son problemas fundamentales en las tareas de síntesis de imágenes de los gráficos por ordenador. Uno de los casos más estudiados es el problema de la galeria de arte, en este problema se busca la optimización de cual es la cantidad mínima de puntos en un poligono para ver los demás. Este problema planteado en 1973 por Victor Klee geometricamente se puede ver como: 
-
-> Dado un polígono simple de n vértices, ¿cuál es el número mínimo de guardias para ver cada punto del interior del polígono? 
-
-Chvátal co-escritor del articulo original, demostro que la cantidad minima de guardias es n/3. La demostración la podemos encontrar en el articulo 3 de las referencias. Y aunque ya vimos cual es la minima cantidad de guardias para asegurar la visibilidad no hemos definido que es la visibilidad. La visibilidad se define de tal manera que dos puntos u y v son mutuamente visibles si el segmento de línea que los une se encuentra dentro del polígono.
 
 ## DDA Raycasting algorithm
 
@@ -167,6 +195,17 @@ function mouseDragged(){
   quadrille.fill(floor(thisRow), floor(thisColumn),c)
 }
 > > ```
+
+## Aplicaciones
+
+### Robótica
+
+Los polígonos de visibilidad son útiles en robótica. Por ejemplo, en la localización de robots, un robot que utiliza sensores como un “lidar” detectará los obstáculos que pueda ver, lo que es similar a un polígono de visibilidad.
+
+El lidar es un método para determinar rangos (distancia variable) apuntando a un objeto con un láser y midiendo el tiempo que tarda la luz reflejada en volver al receptor. Este también puede utilizarse para hacer representaciones digitales en 3-D de zonas de la superficie terrestre y del fondo del océano, debido a las diferencias en los tiempos de retorno del láser, y variando las longitudes de onda del mismo. Tiene aplicaciones terrestres, aéreas y móviles.
+
+![GIF](https://upload.wikimedia.org/wikipedia/commons/c/c0/LIDAR-scanned-SICK-LMS-animation.gif)
+
 
 ## REFERENCES
 
