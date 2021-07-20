@@ -217,6 +217,7 @@ El lidar es un método para determinar rangos (distancia variable) apuntando a u
 1. Trivedi, J. (2015). Simulation of DDA (Digital Differential Analyzer) Line Generation Algorithm. IJCSN International Journal of Computer Science and Network, 110-111.
 2. Yang, Z., Wang, Z., Peng, K., Yang, W., & Liu, L. (2012, September). Design and Implementation of Digital Integral Interpolator Based on LabVIEW. In 2nd International Conference on Electronic & Mechanical Engineering and Information Technology. Atlantis Press.
 3. Chesnokov, N. (2018). The Art Gallery Problem: An Overview and Extension to Chromatic Coloring and Mobile Guards.
+4. Ghosh, S. K. (2007). Visibility algorithms in the plane. Cambridge university press.
 
 
 > :ToCPrevNext
