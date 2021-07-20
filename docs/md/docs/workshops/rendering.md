@@ -196,7 +196,16 @@ function mouseDragged(){
 }
 > > ```
 
-### Wall tracking (LAURA)
+### Wall tracking
+Otro enfoque más eficaz consiste en combinar la proyección de rayos y la intersección de la pared en un solo algoritmo. Este algoritmo barre una línea alrededor de un círculo, golpeando todos los puntos ordenados por ángulo; también es posible expandir círculos hacia afuera, alcanzando todos los puntos ordenados por radio.
+
+Para el área entre rayos consecutivos, se busca encontrar la pared más cercana. Esta pared está iluminada; todos los demás están ocultos. La estrategia utilizada será barrer alrededor de 360 ° y procesar todos los puntos finales de la pared. A medida que se avanza, se hará un seguimiento de las paredes que se cruzan con la línea de barrido.
+
+El siguiente paso es realizar un seguimiento de las paredes que atraviesa el rayo de barrido. Donde solo se ve la pared más cercana. Para buscar la pared más cercana, se calcula la distancia del centro a la pared. Sin embargo, este enfoque no funciona bien si las paredes son de diferentes tamaños
+
+Cuando se termina el muro más cercano, o si un nuevo muro está más cerca que los demás, se crea un triángulo que muestra una región visible. La unión de estos triángulos es el área que es visible desde el punto central.
+
+La creación de un triángulo implica la intersección de la pared previamente activa con el rayo de barrido. Como resultado, el nuevo borde del triángulo puede ser más largo o más corto que el rayo de barrido, y el borde lejano del triángulo puede ser más corto que la pared previamente activa.
 
 ## Aplicaciones
 
@@ -210,7 +219,12 @@ El lidar es un método para determinar rangos (distancia variable) apuntando a u
 
 ### VideoJuegos 
 
-## Conclusiones (LAURA)
+## Conclusiones
+
+* El algoritmo DDA busca determinar los valores enteros correspondientes más próximos a la trayectoria de la línea para la otra coordenada. Hace uso de los puntos flotantes.
+* Tiene como desventajas que presenta errores de acumulación y de redondeo lento, al redondear las coordenadas al entero más cercano, las acumulaciones de errores de redondeo provocan la acumulación de errores. También, completar operaciones y operaciones de coma flotante consume mucho tiempo
+* El algoritmo DDA hace lo mismo que el algoritmo de Bresenham, pero se aplica cuando se necesita "antialiasing". Aunque tiene menos líneas de código, es más lento que Bresenham, porque usa divisiones en ciertas operaciones.
+* El algoritmo DDA se implementó en diferentes campos uno de estos fue en la aviación, ya que gracias a su desarrollo los aviones podían ser guiados por un camino fijo que era marcado por el algoritmo el cual realizaba una línea recta desde un punto hasta el otro; otras aplicaciones son la robótica, los videojuegos y determinación de rutas.
 
 ## REFERENCIAS
 
