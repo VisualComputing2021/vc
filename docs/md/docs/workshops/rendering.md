@@ -22,7 +22,7 @@ Este algoritmo nos presenta unas ventajas respecto a otros algoritmos de dibujo 
 
 Aquí podemos ver una implementación del algoritmo usando la libreria de quadrille.
 
-> :P5 lib1=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js, sketch=/docs/sketches/Raycasting/sketch.js
+> :P5 lib1=https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js, sketch=/docs/sketches/Raycasting/DDA.js
 
 ## The visibility problem on 2D
 
