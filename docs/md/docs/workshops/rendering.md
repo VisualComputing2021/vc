@@ -230,7 +230,7 @@ function mouseDragged(){
 
 ### VideoJuegos 
 
-Para este caso se involucra directamente con el campo de visión de los jugadores y de la inteligencia artificial de los enemigos, donde al aplicar una restricción a la distancia máxima en la que se puede proyectar el polígono de visibilidad además de reducir el ángulo de barrido a solo un cono frente al jugador, se genera lo que se conoce como "fog of war" donde solo se puede visualizar un campo pequeño alrededor de las unidades, dejando localizaciones exploradas bajo un tinte oscuro y uno mucho mayor para las no exploradas, eso como se puede visualizar en la siguiente imagen:
+<p style="text-align: justify">Para este caso se involucra directamente con el campo de visión de los jugadores y de la inteligencia artificial de los enemigos, donde al aplicar una restricción a la distancia máxima en la que se puede proyectar el polígono de visibilidad además de reducir el ángulo de barrido a solo un cono frente al jugador, se genera lo que se conoce como "fog of war" donde solo se puede visualizar un campo pequeño alrededor de las unidades, dejando localizaciones exploradas bajo un tinte oscuro y uno mucho mayor para las no exploradas, eso como se puede visualizar en la siguiente imagen:</p>
 
 <img src="/docs/sketches/Raycasting/VG.png">
 
