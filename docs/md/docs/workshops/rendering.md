@@ -54,12 +54,12 @@
 #### Interpretación Matemtica
 
 <p style="text-align: justify">Sabemos que la ecuación de una linea recta es: y=mx+b dónde m es la pendiente de la recta que podemos calcular como: </p> 
-> :Formula
+>:Formula
 > 
-> \frac{y_{final}-y_{inicial}}{x_{final}-x-{inicial}}. 
+>\frac{y_{final}-y_{inicial}}{x_{final}-x-{inicial}}. 
 <p style="text-align: justify">Basado en esto el algoritmo DDA calcula para cada segmento de linea la siguientes ecuaciones</p> 
-> :Formula
-> x_{i} = x_{i-1} + 1 y y_{i} = y_{i-1} + m. 
+>:Formula
+>x_{i} = x_{i-1} + 1 y y_{i} = y_{i-1} + m. 
 <p style="text-align: justify">Facilmente podemos ver como el algoritmo tiene en cuenta su valor anterior para calcular los siguientes valores.</p>
 
 <p style="text-align: justify">Este algoritmo nos presenta unas ventajas respecto a otros algoritmos de dibujo de lineas, entre ellas encontramos que es un algoritmo muy fácil de implementar y de analizar, además dado que el algoritmo DDA utiliza la suma repetida para no usar la multiplicación así reduciendo su complejidad temporal, finalmente su ventaja más relevante es que nos permite detectar el cambio en el valor de x e y, por lo que no es posible trazar dos veces el mismo punto. Pero este algoritmo tiene varias desventajas una de ellas es que es necesario las sumas en coma flotante que se redondean así el redondeo provoca la acumulación del error que se puede propagar y que estas operaciones pueden llegar a tomar más tiempo del calculo de linea comparado con otros algoritmos esto dado que requiere de dos sumas por ciclo de salida, y en caso de desbordamiento de la parte fraccionaria, un incremento y una resta adicionales.</p>
