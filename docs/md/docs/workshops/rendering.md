@@ -51,7 +51,7 @@
 
 <p style="text-align: justify">El algoritmo DDA (Analizador Diferencial Digital) por su siglas en ingles es usado para la interpolación de variables desde un punto inicial a uno final. Su relevancia es tan alta que el algoritmo se ha llevado al hardware, es así como los DDA se utilizan para la rasterización de líneas, triángulos y polígonos.</p>
 
-#### Interpretación Matemtica
+#### Interpretación Matemática
 
 <p style="text-align: justify">Sabemos que la ecuación de una linea recta es: y=mx+b dónde m es la pendiente de la recta que podemos calcular como: </p> 
 
