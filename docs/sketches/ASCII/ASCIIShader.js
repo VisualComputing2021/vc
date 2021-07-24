@@ -9,7 +9,7 @@ let slider;
 function preload(){
   // load the shader
   theShader = loadShader('/vc/docs/sketches/ASCII/texture.vert','/vc/docs/sketches/ASCII/texture.frag');
-  img = loadImage("/vc/docs/sketches/ASCII/dogo.jpg");
+  img = loadImage("/vc/docs/sketches/ASCII/dogos.jpg");
   var str = ""
   for (var i=0 ; i<10 ; i++){
     str = "/vc/docs/sketches/ASCII/A"+String(i+1)+".png";
@@ -43,12 +43,6 @@ function setup() {
 function draw() {
   theShader.setUniform("resolution", slider.value());
   showPixel.html('px '+slider.value());
-  theShader.setUniform("resolution", 100);
-  debug = true;
-  theShader.setUniform("debug", debug);
-}
-
-function draw() {
   background(0);
   beginShape();
   vertex(-planeSide/2, -planeSide/2, 0, 0); // esquina inferior izquierda
