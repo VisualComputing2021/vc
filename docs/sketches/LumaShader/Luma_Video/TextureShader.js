@@ -1,19 +1,22 @@
 let theShader;
-let img;
+let video;
 let planeSide = 400;
-let button;
 function preload(){
   // load the shader
-  theShader = loadShader('/vc/docs/sketches/TextureShader/texture.vert','/vc/docs/sketches/TextureShader/texture.frag');
-  img = loadImage("/vc/docs/sketches/TextureShader/doge.jpg");
+  theShader = loadShader('/vc/docs/sketches/LumaShader/Luma_Ponderado/texture.vert','/vc/docs/sketches/LumaShader/Luma_Ponderado/texture.frag');
+  video = createVideo("/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4");
 }
 function setup() {
   // shaders require WEBGL mode to work
   createCanvas(400, 400, WEBGL);
+  video.loop();
+  video.hide();
+  video.volume(0);
+  noStroke();
+  shader(theShader)
   textureMode(NORMAL);
   shader(theShader);
   // here we're using setUniform() to send our uniform values to the shader
-  theShader.setUniform("texture", img);
 }
 function draw() {
   background(255);
@@ -23,4 +26,8 @@ function draw() {
   vertex(planeSide/2, planeSide/2, 1, 1); // esquina superior derecha
   vertex(-planeSide/2, planeSide/2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
+
+  theShader.setUniform("texture", video);
+  theShader.setUniform("textureWidth", 400.0);
+  theShader.setUniform("textureHeight", 400.0)
 }

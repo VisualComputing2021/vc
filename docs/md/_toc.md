@@ -31,12 +31,13 @@
 >  >  >  > :Collapse label=Convolution Masks
 >  >  >  >
 >  >  >  > [Imaging](/docs/workshops/imgHardwareConvolutionMasks)
->  >  >  > [Video]()
+>  >  >  > [Video](/docs/workshops/videoHardwareConvolutionMasks)
 >  >  >  
 >  >  >  > :Collapse label=Mosaic
 >  >  >  >
 >  >  >  > [Imaging ASCII](/docs/workshops/imgHardwareASCII)
 >  >  >  > [Final Mosaic](/docs/workshops/imgHardwareMosaic)
+
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)

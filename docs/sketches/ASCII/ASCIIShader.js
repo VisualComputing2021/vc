@@ -43,6 +43,12 @@ function setup() {
 function draw() {
   theShader.setUniform("resolution", slider.value());
   showPixel.html('px '+slider.value());
+  theShader.setUniform("resolution", 100);
+  debug = true;
+  theShader.setUniform("debug", debug);
+}
+
+function draw() {
   background(0);
   beginShape();
   vertex(-planeSide/2, -planeSide/2, 0, 0); // esquina inferior izquierda
