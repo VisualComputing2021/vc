@@ -4,14 +4,17 @@ let planeSide = 1000;
 let button;
 let debug;
 let symbols = [];
+let slider;
 
 function preload(){
   // load the shader
   theShader = loadShader('/vc/docs/sketches/ASCII/texture.vert','/vc/docs/sketches/ASCII/texture.frag');
   img = loadImage("/vc/docs/sketches/ASCII/dogo.jpg");
-  symboll = loadImage("/vc/docs/sketches/ASCII/DeepMind.jpg");
-  symbols[0] = loadImage('/vc/docs/sketches/ASCII/DeepMind.jpg');
-  symbols[1] = loadImage('/vc/docs/sketches/ASCII/dogo.jpg');
+  var str = ""
+  for (var i=0 ; i<10 ; i++){
+    str = "/vc/docs/sketches/ASCII/A"+String(i+1)+".png";
+    symbols[i] = loadImage(str);
+  }
 }
 
 function setup() {
@@ -21,7 +24,25 @@ function setup() {
   shader(theShader);
   // here we're using setUniform() to send our uniform values to the shader
   theShader.setUniform("image", img);
-  theShader.setUniform("symboll", symboll);
+  for (var i=0 ; i<10 ; i++){
+    str = "A"+String(i+1);
+    theShader.setUniform(str, symbols[i]);
+  }
+  theShader.setUniform("resolution", 100);
+  debug = true;
+  theShader.setUniform("debug", debug);
+
+  //Slider Config
+  slider = createSlider(10,500,100,10);
+  slider.position( 100, 30);
+  slider.style('width', '200px');
+  showPixel = createElement('h2', 'px '+100);
+  showPixel.position( 30, 0);
+}
+
+function draw() {
+  theShader.setUniform("resolution", slider.value());
+  showPixel.html('px '+slider.value());
   theShader.setUniform("resolution", 100);
   debug = true;
   theShader.setUniform("debug", debug);
