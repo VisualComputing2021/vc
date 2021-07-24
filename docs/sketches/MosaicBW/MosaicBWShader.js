@@ -3,17 +3,17 @@ let img;
 let planeSide = 1000;
 let button;
 let debug;
-let symbols = [];
 let slider;
+let Grayimgs = new Array(10);
 
 function preload(){
   // load the shader
-  theShader = loadShader('/vc/docs/sketches/ASCII/texture.vert','/vc/docs/sketches/ASCII/texture.frag');
-  img = loadImage("/vc/docs/sketches/ASCII/dogo.jpg");
-  var str = ""
-  for (var i=0 ; i<10 ; i++){
-    str = "/vc/docs/sketches/ASCII/A"+String(i+1)+".png";
-    symbols[i] = loadImage(str);
+  theShader = loadShader('/vc/docs/sketches/MosaicBW/texture.vert','/vc/docs/sketches/MosaicBW/texture.frag');
+  img = loadImage("/vc/docs/sketches/MosaicBW/dogos.jpg");
+  var k = 0;
+  for (let i=0; i<15; i++){
+    Grayimgs[k] = loadImage("/vc/docs/sketches/MosaicBW/gray"+(i+1)+".jpg");
+    k = k + 1;
   }
 }
 
@@ -24,9 +24,10 @@ function setup() {
   shader(theShader);
   // here we're using setUniform() to send our uniform values to the shader
   theShader.setUniform("image", img);
-  for (var i=0 ; i<10 ; i++){
-    str = "A"+String(i+1);
-    theShader.setUniform(str, symbols[i]);
+  var str = ""
+  for (var i=0 ; i<15 ; i++){
+    str = "Gr"+String(15-i);
+    theShader.setUniform(str, Grayimgs[i]);
   }
   theShader.setUniform("resolution", 100);
   debug = true;

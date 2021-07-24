@@ -36,6 +36,7 @@
 >  >  >  > :Collapse label=Mosaic
 >  >  >  >
 >  >  >  > [Imaging ASCII](/docs/workshops/imgHardwareASCII)
+>  >  >  > [Final Mosaic](/docs/workshops/imgHardwareMosaic)
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
