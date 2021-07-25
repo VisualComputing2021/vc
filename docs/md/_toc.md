@@ -37,8 +37,6 @@
 >  >  >  >
 >  >  >  > [Imaging ASCII](/docs/workshops/imgHardwareASCII)
 >  >  >  > [Final Mosaic](/docs/workshops/imgHardwareMosaic)
->  >  >  [Conclusions and Future Work](/docs/workshops/imgHardwareMosaic)
-
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
