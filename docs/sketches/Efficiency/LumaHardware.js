@@ -26,7 +26,7 @@ let vid;
       }
   }
   updatePixels();
-  text("Frame con frameRate() = " + frameRate().toFixed(3)/2.1416, 100, 30);
+  text("Frame con frameRate() = " + frameRate().toFixed(3)*1/2.1416, 100, 30);
 }
 function onVideoLoad() {
   vid.hide();
