@@ -16,14 +16,14 @@ El código del fragment shader es un buen ejemplo de por qué los shaders son un
 De todas formas, más allá de las facilidades brindadas por glsl, es de señalar que hubo dificultades para manejar máscaras de tamaños variables, pues el lenguaje resulta muy poco flexible para manipular vectores de tamaños variables.
 
 ## Eficiencia Computacional
-Utilizamos la funcion framerate() para evaluar la eficiencia computacional de los videos, la eficiencia computuacional al hacerlo por hardware es mayor que al hacerlo por software.
+Utilizamos la funcion framerate() para evaluar la eficiencia computacional de los videos, la eficiencia computacional al hacerlo por hardware es mayor que al hacerlo por software.
 > :Tabs
 > > :Tab title=Video Original
 > > >
 > > > :P5 sketch=/docs/sketches/Efficiency/framerate.js, width=710, height=500
 >
-> > :Tab title=Luma
-> > >
+> > :Tab title=Luma Software
+> > > 
 > > > :P5 sketch=/docs/sketches/Efficiency/LumaFramerate.js, width=710, height=500
 >
 > > :Tab title=P5Code
