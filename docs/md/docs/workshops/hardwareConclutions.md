@@ -16,39 +16,38 @@ El código del fragment shader es un buen ejemplo de por qué los shaders son un
 De todas formas, más allá de las facilidades brindadas por glsl, es de señalar que hubo dificultades para manejar máscaras de tamaños variables, pues el lenguaje resulta muy poco flexible para manipular vectores de tamaños variables.
 
 ## Eficiencia Computacional
-Utilizamos la funcion framerate() para evaluar la eficiencia computacional de los videos, la eficiencia computuacional al hacerlo por hardware es mayor que al hacerlo por software.
+Utilizamos la funcion framerate() para evaluar la eficiencia computacional de los videos, la eficiencia computacional al hacerlo por hardware es mayor que al hacerlo por software.
 > :Tabs
 > > :Tab title=Video Original
 > > >
 > > > :P5 sketch=/docs/sketches/Efficiency/framerate.js, width=710, height=500
 >
-> > :Tab title=Luma
-> > >
+> > :Tab title=Luma Software
+> > > 
 > > > :P5 sketch=/docs/sketches/Efficiency/LumaFramerate.js, width=710, height=500
+>
+> > :Tab title=Luma Hardware
+> > > 
+> > > :P5 sketch=/docs/sketches/Efficiency/LumaHardware.js, width=710, height=500
 >
 > > :Tab title=P5Code
 > >
 > > ```js
 let videoElement;
 function setup() {
-  videoElement = createVideo(["/vc/docs/sketches/walk.mp4"], onVideoLoad);
-  videoElement.parent("video-1");
-  var myCanvas = createCanvas(1000, 200);
-  myCanvas.parent("video-position");
+  videoElement = createVideo(["/vc/docs/sketches/LumaShader/Luma_Video/SpaceJam.mp4"], onVideoLoad);
+  createCanvas(710, 50);
 }
 function draw() {
-  background(255, 255, 255);
+  background(250,250,250);
   textSize(20);
-  text("- Frame Rate with frameRate() = " + frameRate().toFixed(3), 100, 30);
-  text("- Frames that have passed with frameCount = " + frameCount, 100, 70);
-  text("- Time difference between the beginning of the previous frame",100, 110);
-  text("and the beginning of the current frame with deltaTime = " +deltaTime.toFixed(3),100,135);
+  text("Frame con frameRate() = " + frameRate().toFixed(3), 100, 30);
 }
 function onVideoLoad() {
   videoElement.play();
   videoElement.volume(0);
   videoElement.autoplay(true);
-  videoElement.size(640, 360);
+  videoElement.size(710, 400);
   videoElement.loop();
 }
 > > ```
