@@ -8,10 +8,7 @@ let vid;
  function draw() {
 
   background(250, 250, 250);
-
   textSize(20);
-  
-
   image(vid, 0, 50, 710, 400);
   loadPixels();
   const step = 1;
