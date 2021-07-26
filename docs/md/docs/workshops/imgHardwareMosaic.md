@@ -42,7 +42,6 @@ let button;
 let debug;
 let slider;
 let Grayimgs = new Array(10);
-
 function preload(){
   // load the shader
   theShader = loadShader('/vc/docs/sketches/Mosaico/texture.vert','/vc/docs/sketches/Mosaico/texture.frag');
@@ -53,7 +52,6 @@ function preload(){
     k = k + 1;
   }
 }
-
 function setup() {
   // shaders require WEBGL mode to work
   createCanvas(1000, 1000, WEBGL);
@@ -69,7 +67,6 @@ function setup() {
   theShader.setUniform("resolution", 100);
   debug = true;
   theShader.setUniform("debug", debug);
-
   //Slider Config
   slider = createSlider(10,500,100,10);
   slider.position( 100, 30);
@@ -77,7 +74,6 @@ function setup() {
   showPixel = createElement('h2', 'px '+100);
   showPixel.position( 30, 0);
 }
-
 function draw() {
   theShader.setUniform("resolution", slider.value());
   showPixel.html('px '+slider.value());
@@ -89,7 +85,6 @@ function draw() {
   vertex(-planeSide/2, planeSide/2, 0, 1); // esquina superior izquierda
   endShape(CLOSE);
 }
-
 function keyPressed(){
   if (key === 'd'){
     debug = !debug;
@@ -102,10 +97,8 @@ function keyPressed(){
 > > 
 > >  ```glsl
 precision mediump float;
-
 //image send by the sketch
 uniform sampler2D image;
-
 // grey images
 uniform sampler2D Gr1;
 uniform sampler2D Gr2;
@@ -122,24 +115,19 @@ uniform sampler2D Gr12;
 uniform sampler2D Gr13;
 uniform sampler2D Gr14;
 uniform sampler2D Gr15;
-
 // toggles image display
 uniform bool debug;
 //taget horizontal & vertical resolution
 uniform float resolution;
-
 // interpolated color
 varying vec4 vVertexColor;
 // interpolated textcord
 varying vec2 vTexCoord;
-
 //-------LUMA-------------
 vec4 grayTextureColor;
 float gray;
 //-------------------
-
 void main(){
-
   // remap symbolCooord to [0.0, resolution] R
   vec2 symbolCoord = vTexCoord * resolution;
   // remap imageCoord to [0.0, resolution] Z
@@ -148,20 +136,17 @@ void main(){
   symbolCoord = symbolCoord - imageCoord;
   //remap imageCoord to [0.0, 1.0] R
   imageCoord = imageCoord * vec2(1.0)/vec2(resolution);
-
   //color
   vec4 fallback = vec4(0.0,0.0,0.0,0.0);
   vec4 black = vec4(0.0,0.0,0.0,1.0);
   vec4 charTexel;
   vec4 threshold = vec4(0.1);
-
   grayTextureColor = texture2D(image, vTexCoord);
   gray =  (grayTextureColor.r + grayTextureColor.g + grayTextureColor.b)/3.0;
   float cha = 0.;
   vec4 Asciichar;
   vec4 u_tintColor = vec4(grayTextureColor.r,grayTextureColor.g,grayTextureColor.b,1.0);
   float normTint = 0.30 * u_tintColor.r + 0.59 * u_tintColor.g + 0.11 * u_tintColor.b;
-
    if( gray < 0.05 ) 
     {
         Asciichar = texture2D(Gr1, symbolCoord) * vVertexColor;
@@ -237,10 +222,8 @@ void main(){
         Asciichar = texture2D(Gr15, symbolCoord) * vVertexColor;
         Asciichar = (Asciichar * u_tintColor)/normTint;
     }
-
   //get vec4 color hash index
   vec4 index = texture2D(image, imageCoord);
-
   //TODO goal: get symboll form hash index
   gl_FragColor = debug ? index : Asciichar;
 }
@@ -249,6 +232,5 @@ void main(){
 > > :Tab title=BW
 > > >
 > > > :P5 sketch=/docs/sketches/MosaicBW/MosaicBWShader.js, width=1000, height=1000
-
 
 > :ToCPrevNext
